@@ -6,7 +6,6 @@ import Services from './pages/Services'
 import Resources from './pages/Resources'
 import Faq from './pages/Faq'
 
-
 function App() {
   return (
     <>

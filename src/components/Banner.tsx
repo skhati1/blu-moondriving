@@ -3,7 +3,6 @@ interface BannerProps {
     background: string;
 }
 export default function Banner(props: BannerProps){
-    const fileName = "./src/assets/images/pic0" + props.background + ".jpg";''
     return(
         <>
 		    <section id="banner">

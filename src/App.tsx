@@ -5,17 +5,19 @@ import Index from './pages/Index'
 import Services from './pages/Services'
 import Resources from './pages/Resources'
 import Faq from './pages/Faq'
+import Admin from './pages/Admin'
 
 function App() {
   return (
     <>
+      <Header />
       <div id="page-wrapper">
-        <Header />
           <Routes>
-            <Route path="/" element={<Index />} />
+            <Route path="/home" element={<Index />} />
             <Route path="/services" element={<Services />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/faq" element={<Faq />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
         <Contact />
       </div>

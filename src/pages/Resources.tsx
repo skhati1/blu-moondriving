@@ -3,7 +3,7 @@ import Banner from "../components/Banner";
 export default function Resources() {
 	return (
 		<>
-			<Banner title="Resources" background="2"/>
+			<Banner title="Check out the various links and forms we've curated for our students!" background="2"/>
 			<div className="wrapper">
 				<div className="inner">
 					<ul className="alt">

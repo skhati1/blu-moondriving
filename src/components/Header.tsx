@@ -4,24 +4,16 @@ export default function Header() {
 	return (
 		<>
 			<header id="header" className="">
-				<h1><a href="/">Blu-Moon Driving School</a></h1>
-				<nav>
-					<a href="#menu">Menu</a>
-				</nav>
+				<h1><a href="/home">Blu-Moon Driving School</a></h1>
 
-				<nav id="menu">
-					<div className="inner">
-						<h2>Menu</h2>
-						<ul className="links">
-							<li><NavLink to="/">Home</NavLink></li>
-							<li><NavLink to="/services">Services</NavLink></li>
-							<li><NavLink to="/resources">Resources</NavLink></li>
-							<li><NavLink to="/faq">FAQ</NavLink></li>
-							<li><NavLink to="#">Admin</NavLink></li>
-						</ul>
-						<a href="#" className="close">Close</a>
-					</div>
+				<nav>
+					<NavLink to="/home">Home</NavLink>
+					<NavLink to="/services">Services</NavLink>
+					<NavLink to="/resources">Resources</NavLink>
+					<NavLink to="/faq">FAQ</NavLink>
+					<NavLink to="/admin">Admin</NavLink>
 				</nav>
+				
 			</header>
 
 		</>

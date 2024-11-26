@@ -2,6 +2,7 @@ interface BannerProps {
     title: string;
     background: string;
 }
+
 export default function Banner(props: BannerProps){
     return(
         <>

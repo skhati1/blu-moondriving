@@ -7,7 +7,7 @@ export default function Header() {
 				<h1><a href="/home">Blu-Moon Driving School</a></h1>
 
 				<nav>
-					<NavLink to="/home">Home</NavLink>
+					<NavLink to="/">Home</NavLink>
 					<NavLink to="/services">Services</NavLink>
 					<NavLink to="/resources">Resources</NavLink>
 					<NavLink to="/faq">FAQ</NavLink>

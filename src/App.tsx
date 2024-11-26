@@ -13,7 +13,7 @@ function App() {
       <Header />
       <div id="page-wrapper">
           <Routes>
-            <Route path="/home" element={<Index />} />
+            <Route path="/" element={<Index />} />
             <Route path="/services" element={<Services />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/faq" element={<Faq />} />

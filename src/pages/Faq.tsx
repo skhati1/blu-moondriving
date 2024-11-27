@@ -4,10 +4,8 @@ export default function Faq() {
 	return (
 		<>
 			<section id="wrapper">
-				<Banner title="FAQ" background="4"/>
-				<div className="wrapper">
-					<div className="inner">
-
+				<Banner title="Please review the following frequently asked questions list!" background="4"/>
+				<div style={{ width: "70%", marginLeft: "18%"}}>
 						<ol>
 							<div className="field">
 								<li><label>What will the driving school do for me?</label></li>
@@ -217,8 +215,7 @@ export default function Faq() {
 							</div>
 
 						</ol>
-					</div>
-				</div>
+						</div>
 			</section>
 		</>
 	)

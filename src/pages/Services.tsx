@@ -3,7 +3,7 @@ import Banner from "../components/Banner";
 export default function Services() {
 	return (
 		<>
-			<Banner title="We offer a wide range of services to our new and existing Maryland drivers!" background="3"/>
+			<Banner title="We offer a wide range of services to our new and existing Maryland drivers!" background="2"/>
 			<section id="wrapper">
 				<section id="one" className="wrapper spotlight style1">
 					<div className="inner">

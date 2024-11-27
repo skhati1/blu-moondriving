@@ -3,9 +3,11 @@ import Banner from "../components/Banner";
 export default function Resources() {
 	return (
 		<>
-			<Banner title="Check out the various links and forms we've curated for our students!" background="2"/>
+			<Banner title="Check out the various links and forms we've curated for our students!" background="3"/>
 			<div className="wrapper">
 				<div className="inner">
+					
+					<h3 className="major">Resources</h3>
 					<ul className="alt">
 						<li>
 							<a href="https://mva.maryland.gov/drivers/Pages/non-compliant-drivers-licenses.aspx"

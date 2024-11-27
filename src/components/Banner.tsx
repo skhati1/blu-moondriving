@@ -1,3 +1,5 @@
+import logo from "../assets/logo.png"
+
 interface BannerProps {
     title: string;
     background: string;
@@ -8,8 +10,7 @@ export default function Banner(props: BannerProps){
         <>
 		    <section id="banner">
 				<div className="inner">
-					<div className="logo"></div>
-					<h2>Blu-Moon Driving School</h2>
+					<h2><img src={logo} alt="Blu-Moon Driving Logo" width={200} height={200}/>Blu-Moon Driving School</h2>
 					<p>{props.title}</p>
 				</div>
 			</section>

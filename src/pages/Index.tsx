@@ -4,11 +4,8 @@ export default function Index() {
 	return (
 		<>
 			<section id="wrapper">
-				<Banner title="Drive With Care" background="1"/>
-				<div className="">
-					<div className="inner">
-						<div className="wrapper">
-							<div className="inner">
+				<Banner title="Drive With Care" background="1" pageName="Home"/>
+				<div style={{ width: "70%", marginLeft: "18%"}}>
 								<p>Welcome to <strong>Blu-Moon Driving School</strong> where your journey to safe and confident
 									driving begins!</p>
 								<p>We are dedicated to empowering new drivers with the skills, confidence, and
@@ -37,9 +34,6 @@ export default function Index() {
 								<p>Ready to start your journey to becoming a confident driver? Join Blu-Moon Driving
 									School today and let us help you achieve the freedom that comes with driving!</p>
 							</div>
-						</div>
-						</div>
-					</div>
 			</section>
 		</>
 	)

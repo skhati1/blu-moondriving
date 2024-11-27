@@ -1,11 +1,11 @@
 import Banner from "../components/Banner";
+import Content from "../components/layout/Content";
 
 export default function Resources() {
 	return (
 		<>
-			<Banner title="Check out the various links and forms we've curated for our students!" background="3"/>
-			<div className="wrapper">
-				<div className="inner">
+			<Banner title="" background="3" pageName="Resources"/>
+			<Content>
 					
 					<h3 className="major">Resources</h3>
 					<ul className="alt">
@@ -94,9 +94,7 @@ export default function Resources() {
 								Student Workbook
 							</a>
 						</li>
-					</ul>
-				</div>
-			</div>
+					</ul></Content>
 		</>
 	)
 }

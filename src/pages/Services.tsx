@@ -1,15 +1,20 @@
 import Banner from "../components/Banner";
+import ImageOne from "../assets/home/01.jpg";
+import ImageTwo from "../assets/home/02.jpg";
+import ImageThree from "../assets/home/03.jpg";
+import ImageFour from "../assets/home/04.jpg";
 
 export default function Services() {
 	return (
 		<>
-			<Banner title="We offer a wide range of services to our new and existing Maryland drivers!" background="2"/>
+			<Banner title="We offer a wide range of services to our new and existing Maryland drivers!" background="2" pageName="Services"/>
 			<section id="wrapper">
 				<section id="one" className="wrapper spotlight style1">
 					<div className="inner">
+					<a className="image" href="#"><img src={ImageFour} alt="driving image 1"></img></a>
 						<div className="content">
-							<h2 className="major">Basic Course (30 Hour classNameroom & 6 Hour Behind-The-Wheel Lesson)</h2>
-							<p>This course
+							<h2 className="major">Basic Course</h2>
+							<p><em>30 Hour classroom & 6 Hour Behind-The-Wheel Lesson</em><br />This course
 								Meets the Minimum Educational Requirements as mandated by Motor Vehicle
 								Administration of Maryland for a new Driver to obtain the provisional license
 								plus 2 Additional hours of driving practice to gain defensive driving skills to
@@ -19,9 +24,10 @@ export default function Services() {
 				</section>
 				<section id="two" className="wrapper alt spotlight style2">
 					<div className="inner">
+					<a className="image" href="#"><img src={ImageTwo} alt="driving image 1"></img></a>
 						<div className="content">
-							<h2 className="major">Advanced Course (30 Hour classNameroom & 8 Hour Behind-The-Wheel Lesson)</h2>
-							<p>This course
+							<h2 className="major">Advanced Course </h2>
+							<p><em>30 Hour classroom & 8 Hour Behind-The-Wheel Lesson</em><br/>This course
 								Meets the Minimum Educational Requirements as mandated by Motor Vehicle
 								Administration of Maryland for a new Driver to obtain the provisional license
 								plus 2 Additional hours of driving practice to gain defensive driving skills to
@@ -32,9 +38,10 @@ export default function Services() {
 
 				<section id="three" className="wrapper spotlight style3">
 					<div className="inner">
+					<a className="image" href="#"><img src={ImageThree} alt="driving image 1"></img></a>
 						<div className="content">
-							<h2 className="major">Premium Course (30 Hour classNameroom & 10 Hour Behind-The-Wheel Lesson)</h2>
-							<p>This course
+							<h2 className="major">Premium Course </h2>
+							<p><em>30 Hour classroom & 10 Hour Behind-The-Wheel Lesson</em><br/>This course
 								Meets the Minimum Educational Requirements as mandated by Motor Vehicle
 								Administration of Maryland for a new Driver to obtain the provisional license
 								plus 4 Extra hours of driving practice to gain defensive driving skills to
@@ -47,9 +54,10 @@ export default function Services() {
 
 				<section id="three" className="wrapper alt spotlight style2">
 					<div className="inner">
+					<a className="image" href="#"><img src={ImageOne} alt="driving image 1"></img></a>
 						<div className="content">
-							<h2 className="major">Refresher Course (Practice Hours Only)</h2>
-							<p>Haven’t driven in a while? Our
+							<h2 className="major">Refresher Course</h2>
+							<p><em>Practice Hours Only</em><br />Haven’t driven in a while? Our
 								refresher course will help you regain driving confidence, update your skills, and
 								keep you safe on today’s roads.</p>
 						</div>

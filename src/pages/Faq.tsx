@@ -1,11 +1,12 @@
 import Banner from "../components/Banner";
+import Content from "../components/layout/Content";
 
 export default function Faq() {
 	return (
 		<>
 			<section id="wrapper">
-				<Banner title="Please review the following frequently asked questions list!" background="4"/>
-				<div style={{ width: "70%", marginLeft: "18%"}}>
+				<Banner title="" background="4" pageName="FAQ"/>
+				<Content>
 						<ol>
 							<div className="field">
 								<li><label>What will the driving school do for me?</label></li>
@@ -215,7 +216,7 @@ export default function Faq() {
 							</div>
 
 						</ol>
-						</div>
+						</Content>
 			</section>
 		</>
 	)

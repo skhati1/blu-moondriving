@@ -1,11 +1,12 @@
 import Banner from "../components/Banner";
+import Content from "../components/layout/Content";
 
 export default function Index() {
 	return (
 		<>
 			<section id="wrapper">
-				<Banner title="Drive With Care" background="1" pageName="Home"/>
-				<div style={{ width: "70%", marginLeft: "18%"}}>
+				<Banner title="" background="1" pageName="Home"/>
+				<Content>
 								<p>Welcome to <strong>Blu-Moon Driving School</strong> where your journey to safe and confident
 									driving begins!</p>
 								<p>We are dedicated to empowering new drivers with the skills, confidence, and
@@ -33,7 +34,7 @@ export default function Index() {
 								</ul>
 								<p>Ready to start your journey to becoming a confident driver? Join Blu-Moon Driving
 									School today and let us help you achieve the freedom that comes with driving!</p>
-							</div>
+							</Content>
 			</section>
 		</>
 	)

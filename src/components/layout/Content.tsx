@@ -4,7 +4,7 @@ interface ContentProps{
 export default function Content(props: ContentProps){
     return(
         <>
-            <div style={{ width: "70%", marginLeft: "18%"}}>
+            <div id="content">
                 {props.children}
             </div>
         </>

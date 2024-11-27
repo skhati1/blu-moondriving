@@ -3375,6 +3375,49 @@ input, select, textarea {
 			transform: translateY(0);
 			opacity: 1;
 		}
+		
+/* Content */
+
+	#content {
+		padding: 4 em 0 1em 0;
+		margin: 0 auto;
+		width: 55em;
+	}
+	@media screen and (max-width: 1280px) {
+
+		#content {
+			padding: 7em 0 5em 0 ;
+			background-color: #2e3141;
+			background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
+			background-size: auto, cover;
+			background-position: center, center;
+			margin-bottom: -6.5em;
+		}
+
+	}
+
+	@media screen and (max-width: 980px) {
+
+		#content {
+			padding: 12em 3em 4em 3em ;
+			margin-bottom: -4.75em;
+			width: 100%;
+		}
+
+	}
+
+	@media screen and (max-width: 736px) {
+
+		#content {
+			padding: 5em 2em 2em 2em ;
+			margin-bottom: -2.5em;
+		}
+
+			#content p {
+				font-size: 0.8em;
+			}
+
+	}
 
 /* Banner */
 

@@ -7,7 +7,7 @@ import ImageFour from "../assets/home/04.jpg";
 export default function Services() {
 	return (
 		<>
-			<Banner title="We offer a wide range of services to our new and existing Maryland drivers!" background="2" pageName="Services"/>
+			<Banner title="" background="2" pageName="Services"/>
 			<section id="wrapper">
 				<section id="one" className="wrapper spotlight style1">
 					<div className="inner">

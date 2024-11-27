@@ -12,9 +12,8 @@ function Contact() {
 
 	const form = useRef();
 
-	const sendEmail = (e: any) => {
+	const sendEmail = () => {
 		setSendText("Sending");
-		e.preventDefault();
 	
 		emailjs.sendForm('service_2ir4frr', 'template_y0mve7t', form.current, 'WAE7NVW3Q3SHB4U-h')
 		  .then((result) => {
@@ -77,7 +76,7 @@ function Contact() {
 								<li className="icon brands fa-facebook-f"><a href="#">facebook.com/untitled-tld</a></li>
 							</ul>
 							<ul className="copyright">
-								<li>&copy; 2024 Blu-Moon Driving Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								<li>&copy; Blu-Moon Driving Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
 					</section>

@@ -75,9 +75,6 @@ function Contact() {
 								<li className="icon solid fa-envelope"><a href="#">admin@blumoondriving.com</a></li>
 								<li className="icon brands fa-facebook-f"><a href="#">facebook.com/untitled-tld</a></li>
 							</ul>
-							<ul className="copyright">
-								<li>&copy; Blu-Moon Driving Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
 						</div>
 					</section>
         </>

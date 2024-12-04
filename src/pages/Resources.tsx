@@ -1,5 +1,8 @@
 import Banner from "../components/Banner";
 import Content from "../components/layout/Content";
+import RookieDriverLog from "../assets/forms/Rookie Driver BTW Log.pdf"
+import DriversManual from "../assets/forms/DriversManual.pdf"
+import BluMoonPolicy from "../assets/forms/Blu-MoonPolicy.pdf"
 
 export default function Resources() {
 	return (
@@ -23,7 +26,7 @@ export default function Resources() {
 
 
 						<li>
-							<a href="https://mva.maryland.gov/Documents/DL-002.pdf" target="_blank">
+							<a href={DriversManual} target="_blank">
 								Maryland Drivers’ Manual </a>
 						</li>
 
@@ -58,11 +61,6 @@ export default function Resources() {
 						</li>
 
 						<li>
-							<a href="ttps://mva.maryland.gov/Documents/DL-300.pdf" target="_blank">
-								MVA Learner&#39;s Permit Form DL#300 </a>
-						</li>
-
-						<li>
 							<a href="https://mva.maryland.gov/Documents/Parents-You-Hold-The-Keys-To-Your-Teens-Driving.pdf" target="_blank">
 								Parents You Hold The Keys – Tips to the Parents </a>
 						</li>
@@ -71,27 +69,22 @@ export default function Resources() {
 					<p>
 
 					</p>
-					<h3 className="major">Forms</h3>
+					<h3 className="major">Forms & Documents</h3>
 
 					<ul className="alt">
 						<li>
-							<a href="#" target="_blank">
-								Blu-Moon Driving School Policies
+							<a href={BluMoonPolicy} target="_blank">
+								Blu-Moon Policy
 							</a>
 						</li>
 						<li>
-							<a href="#" target="_blank">
-								Maryland Learner's Permit Skills Log
-							</a>
-						</li>
-						<li>
-							<a href="#" target="_blank">
+							<a href="https://mva.maryland.gov/Documents/DL-300.pdf" target="_blank">
 								MVA - Learner's Permit - Form #DL-300
 							</a>
 						</li>
 						<li>
-							<a href="#" target="_blank">
-								Student Workbook
+							<a href={RookieDriverLog} target="_blank">
+								Rookie Driver BTW Log
 							</a>
 						</li>
 					</ul></Content>

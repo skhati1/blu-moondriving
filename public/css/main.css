@@ -3077,12 +3077,12 @@ input, select, textarea {
 		-webkit-transition: background-color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out;
-		background-color: rgba(53, 56, 73, 0.95);
+		background-color: rgba(71, 117, 166, 0.95);
 		height: 3.5em;
 		left: 0;
 		line-height: 3.5em;
 		padding: 0 1.25em;
-		position: fixed;
+		position: relative;
 		top: 0;
 		width: 100%;
 		z-index: 10000;
@@ -3375,6 +3375,17 @@ input, select, textarea {
 			transform: translateY(0);
 			opacity: 1;
 		}
+/* LOGO */
+
+.logoName {
+	vertical-align: top;
+	font-size: x-large;
+}
+
+.poppins-medium {
+	font-family: "Poppins", sans-serif;
+	font-weight: 800;
+  }
 		
 /* Content */
 
@@ -3443,7 +3454,7 @@ input, select, textarea {
 /* Banner */
 
 	#banner {
-		padding: 4em 0 1em 0 ;
+		padding: 2em 0 1em 0 ;
 	}
 
 		#banner .inner {
@@ -4067,6 +4078,37 @@ input, select, textarea {
 				padding: 2em 1.5em 0.1em 1.5em ;
 			}
 
+		}
+
+/* Copyright */
+.copyright {
+	border-top: solid 2px rgba(255, 255, 255, 0.125);
+	list-style: none;
+	margin: 4em 0 2em 0;
+	padding: 2em 0 0 0;
+	width: 100%;
+	text-align: center;
+}
+
+	.copyright li {
+		border-left: solid 2px rgba(255, 255, 255, 0.125);
+		color: rgba(255, 255, 255, 0.35);
+		display: inline-block;
+		font-size: 0.9em;
+		line-height: 1;
+		margin-left: 1em;
+		padding: 0;
+		padding-left: 1em;
+	}
+
+		.copyright li:first-child {
+			border-left: 0;
+			margin-left: 0;
+			padding-left: 0;
+		}
+
+		.copyright li a {
+			color: inherit;
 		}
 
 /* Footer */

@@ -7,6 +7,7 @@ export default function Faq() {
 			<section id="wrapper">
 				<Banner title="" background="4" pageName="FAQ"/>
 				<Content>
+					<h1>FAQ</h1>
 						<ol>
 							<div className="field">
 								<li><label>What will the driving school do for me?</label></li>

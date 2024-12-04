@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import logo from "../assets/logo.png"
 
 export default function Header() {
 	const [isMenuVisible, setIsMenuVisible] = useState(false)
@@ -11,8 +12,23 @@ export default function Header() {
 	return (
 		<>
 			<header id="header" className="">
-				<h1><a href="/">Blu-Moon Driving School</a></h1>
+				<h1>
+					<img src={logo} alt="Blu-Moon Driving Logo" width={80} height={80} />
+					<a href="/" className="logoName poppins-medium">Blu-Moon Driving School</a>
+					<br/>
+				</h1>
 				<nav>
+
+					<div>
+						<NavLink to="/" onClick={toggleMenu}>Home</NavLink>
+						<NavLink to="/services" onClick={toggleMenu}>Services</NavLink>
+						<NavLink to="/resources" onClick={toggleMenu}>Resources</NavLink>
+						<NavLink to="/faq" onClick={toggleMenu}>FAQ</NavLink>
+						<NavLink to="/admin" onClick={toggleMenu}>Login</NavLink>
+						<NavLink to="/contact" onClick={toggleMenu}>Contact Us</NavLink>
+					</div>
+				</nav>
+				{/* <nav>
 					<a href="#" className="small" onClick={toggleMenu}>Menu</a>
 				</nav>
 				{isMenuVisible ?
@@ -29,7 +45,7 @@ export default function Header() {
 					</div>
 					:
 					''
-				}
+				} */}
 			</header>
 
 		</>

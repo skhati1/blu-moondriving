@@ -1,5 +1,5 @@
 import Banner from "../components/Banner";
-import ImageOne from "../assets/home/01.jpg";
+import ImageOne from "../assets/home/07.jpg";
 import ImageTwo from "../assets/home/02.jpg";
 import ImageThree from "../assets/home/03.jpg";
 import ImageFour from "../assets/home/04.jpg";
@@ -11,7 +11,7 @@ export default function Services() {
 			<section id="wrapper">
 				<section id="one" className="wrapper spotlight style1">
 					<div className="inner">
-					<a className="image" href="#"><img src={ImageFour} alt="driving image 1"></img></a>
+					<a className="image"><img src={ImageOne} alt="driving image 1"></img></a>
 						<div className="content">
 							<h2 className="major">Basic Course</h2>
 							<p><em>30 Hour classroom & 6 Hour Behind-The-Wheel Lesson</em><br />This course
@@ -24,7 +24,7 @@ export default function Services() {
 				</section>
 				<section id="two" className="wrapper alt spotlight style2">
 					<div className="inner">
-					<a className="image" href="#"><img src={ImageTwo} alt="driving image 1"></img></a>
+					<a className="image"><img src={ImageTwo} alt="driving image 1"></img></a>
 						<div className="content">
 							<h2 className="major">Advanced Course </h2>
 							<p><em>30 Hour classroom & 8 Hour Behind-The-Wheel Lesson</em><br/>This course
@@ -38,7 +38,7 @@ export default function Services() {
 
 				<section id="three" className="wrapper spotlight style3">
 					<div className="inner">
-					<a className="image" href="#"><img src={ImageThree} alt="driving image 1"></img></a>
+					<a className="image"><img src={ImageThree} alt="driving image 1"></img></a>
 						<div className="content">
 							<h2 className="major">Premium Course </h2>
 							<p><em>30 Hour classroom & 10 Hour Behind-The-Wheel Lesson</em><br/>This course
@@ -54,7 +54,7 @@ export default function Services() {
 
 				<section id="three" className="wrapper alt spotlight style2">
 					<div className="inner">
-					<a className="image" href="#"><img src={ImageOne} alt="driving image 1"></img></a>
+					<a className="image"><img src={ImageFour} alt="driving image 1"></img></a>
 						<div className="content">
 							<h2 className="major">Refresher Course</h2>
 							<p><em>Practice Hours Only</em><br />Haven’t driven in a while? Our

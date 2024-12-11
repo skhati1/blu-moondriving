@@ -3160,11 +3160,27 @@ button:disabled,
 .logoName {
 	vertical-align: top;
 	font-size: x-large;
+	font-weight: 800;
 }
 
 .poppins-medium {
 	font-family: "Poppins", sans-serif;
-	font-weight: 800;
+}
+
+
+@media screen and (max-width: 736px) {
+	.logoName {
+		font-size: medium;
+		font-weight: 500;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.logoName {
+		font-size: small;
+		font-weight: 300;
+	}
+
 }
 
 /* Content */

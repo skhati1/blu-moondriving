@@ -8,7 +8,8 @@ import Faq from './pages/Faq'
 import Admin from './pages/Admin'
 import Student from './pages/Student'
 import BlackBar from './components/BlackBar/BlackBar'
-import Footer from './components/Footer'
+import Footer from './components/Footer/Footer'
+import AboutUs from './pages/AboutUs'
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/student" element={<Student />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/about" element={<AboutUs />} />
           </Routes>
         <Footer />
       </div>

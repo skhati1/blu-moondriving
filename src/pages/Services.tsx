@@ -7,7 +7,7 @@ import ImageFour from "../assets/home/04.jpg";
 export default function Services() {
 	return (
 		<>
-			<Banner title="" background="2" pageName="Services"/>
+        <Banner />
 			<section id="wrapper">
 				<section id="one" className="wrapper spotlight style1">
 					<div className="inner">

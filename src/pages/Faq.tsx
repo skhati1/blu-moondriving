@@ -1,11 +1,9 @@
 import Banner from "../components/Banner/Banner";
-import Content from "../components/layout/Content";
+import Content from "../components/layout/Content/Content";
 
 export default function Faq() {
 	return (
 		<>
-			<section id="wrapper">
-				<Banner title="" background="4" pageName="FAQ"/>
 				<Content>
 					<h1>FAQ</h1>
 						<ol>
@@ -218,7 +216,6 @@ export default function Faq() {
 
 						</ol>
 						</Content>
-			</section>
 		</>
 	)
 }

@@ -1,12 +1,6 @@
 import './banner.css'
 
-interface BannerProps {
-    pageName: string;
-    title: string;
-    background: string;
-}
-
-export default function Banner(props: BannerProps) {
+export default function Banner() {
     return (
         <>
             <section id="banner">

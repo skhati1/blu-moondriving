@@ -19,6 +19,7 @@ export default function Header() {
 		const items: { link: string, name: string }[] =
 			[
 				{ link: "/", name: "Home" },
+				{ link: "/about", name: "About"},
 				{ link: "/services", name: "Services" },
 				{ link: "/resources", name: "Resources" },
 				{ link: "/faq", name: "FAQ" },
@@ -28,7 +29,7 @@ export default function Header() {
 
 		return (
 			<>
-				{items.map(({ link, name }, i) => {
+				{items.map(({ link, name }) => {
 					return (
 						<>
 							<NavLink

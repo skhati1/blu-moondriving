@@ -15,6 +15,11 @@ function Contact() {
 
 	const sendEmail = () => {
 		setSendText("Sending");
+
+		if(form.current == null){
+			console.log("Bad form - canceling send")
+			return;
+		}
 	
 		emailjs.sendForm('service_2ir4frr', 'template_y0mve7t', form.current, 'WAE7NVW3Q3SHB4U-h')
 		  .then((result) => {

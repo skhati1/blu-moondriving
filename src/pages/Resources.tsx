@@ -1,5 +1,5 @@
 import Banner from "../components/Banner/Banner";
-import Content from "../components/layout/Content";
+import Content from "../components/layout/Content/Content";
 import RookieDriverLog from "../assets/forms/Rookie Driver BTW Log.pdf"
 import DriversManual from "../assets/forms/DriversManual.pdf"
 import BluMoonPolicy from "../assets/forms/Blu-MoonPolicy.pdf"
@@ -7,7 +7,7 @@ import BluMoonPolicy from "../assets/forms/Blu-MoonPolicy.pdf"
 export default function Resources() {
 	return (
 		<>
-			<Banner title="" background="3" pageName="Resources"/>
+        <Banner />
 			<Content>
 					
 					<h3 className="major">Resources</h3>

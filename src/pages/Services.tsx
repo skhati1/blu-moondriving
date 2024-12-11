@@ -1,4 +1,3 @@
-import Banner from "../components/Banner/Banner";
 import ImageOne from "../assets/home/07.jpg";
 import ImageTwo from "../assets/home/02.jpg";
 import ImageThree from "../assets/home/03.jpg";
@@ -7,7 +6,6 @@ import ImageFour from "../assets/home/04.jpg";
 export default function Services() {
 	return (
 		<>
-        <Banner />
 			<section id="wrapper">
 				<section id="one" className="wrapper spotlight style1">
 					<div className="inner">
@@ -15,10 +13,9 @@ export default function Services() {
 						<div className="content">
 							<h2 className="major">Basic Course</h2>
 							<p><em>30 Hour classroom & 6 Hour Behind-The-Wheel Lesson</em><br />This course
-								Meets the Minimum Educational Requirements as mandated by Motor Vehicle
-								Administration of Maryland for a new Driver to obtain the provisional license
-								plus 2 Additional hours of driving practice to gain defensive driving skills to
-								strengthen the Learner’s Confidence.</p>
+								meets the Minimum Educational Requirements as mandated by Motor Vehicle
+								Administration of Maryland for a new Driver to obtain the provisional license.
+								</p>
 						</div>
 					</div>
 				</section>

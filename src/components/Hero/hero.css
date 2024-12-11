@@ -2,7 +2,7 @@
 	padding: 4em 0 1em 0;
 	margin: 0 auto;
   /* Use "linear-gradient" to add a darken background effect to the image. This will make the text easier to read */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/hero-image.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.42)), url("/images/hero-image.jpg");
   /* Set a specific height */
   height: 70%;
   /* Position and center the image to scale nicely on all screens */
@@ -21,4 +21,8 @@
   transform: translate(-50%, -50%);
   color: white;
   margin-top: 40px;
+}
+
+.heroAction {
+  background-color: rgba(71, 117, 166, 0.95);
 }

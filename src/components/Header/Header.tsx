@@ -19,7 +19,7 @@ export default function Header() {
 		const items: { link: string, name: string }[] =
 			[
 				{ link: "/", name: "Home" },
-				{ link: "/about", name: "About"},
+				{ link: "/about", name: "About Us"},
 				{ link: "/services", name: "Services" },
 				{ link: "/resources", name: "Resources" },
 				{ link: "/faq", name: "FAQ" },

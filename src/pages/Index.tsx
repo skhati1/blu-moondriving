@@ -1,4 +1,3 @@
-import Banner from "../components/Banner/Banner";
 import Content from "../components/layout/Content/Content";
 //import Contact from "../components/Contact/Contact";
 import Hero from "../components/Hero/Hero";

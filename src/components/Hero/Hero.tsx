@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import './hero.css'
 
 export default function Hero() {
@@ -5,7 +6,7 @@ export default function Hero() {
         <div className="hero">
             <div className="hero-text">
                 <h1>Welcome to Blu-Moon Driving School</h1>
-                <button className="primary">Call Today</button>
+                <NavLink to="/"><button className="heroAction">Register</button></NavLink>
             </div>
         </div>
     )

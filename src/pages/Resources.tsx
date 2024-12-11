@@ -1,4 +1,4 @@
-import Banner from "../components/Banner";
+import Banner from "../components/Banner/Banner";
 import Content from "../components/layout/Content";
 import RookieDriverLog from "../assets/forms/Rookie Driver BTW Log.pdf"
 import DriversManual from "../assets/forms/DriversManual.pdf"

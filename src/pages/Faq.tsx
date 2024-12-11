@@ -1,4 +1,4 @@
-import Banner from "../components/Banner";
+import Banner from "../components/Banner/Banner";
 import Content from "../components/layout/Content";
 
 export default function Faq() {

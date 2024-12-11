@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import Header from './components/Header'
+import Header from './components/Header/Header'
 import ContactUs from './pages/ContactUs'
 import Index from './pages/Index'
 import Services from './pages/Services'
@@ -7,7 +7,7 @@ import Resources from './pages/Resources'
 import Faq from './pages/Faq'
 import Admin from './pages/Admin'
 import Student from './pages/Student'
-import BlackBar from './components/BlackBar'
+import BlackBar from './components/BlackBar/BlackBar'
 import Footer from './components/Footer'
 
 

@@ -1,4 +1,4 @@
-import logo from "../assets/logo.png"
+import './banner.css'
 
 interface BannerProps {
     pageName: string;

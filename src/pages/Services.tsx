@@ -1,4 +1,4 @@
-import Banner from "../components/Banner";
+import Banner from "../components/Banner/Banner";
 import ImageOne from "../assets/home/07.jpg";
 import ImageTwo from "../assets/home/02.jpg";
 import ImageThree from "../assets/home/03.jpg";

@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { useForm } from "react-hook-form";
+import './contact.css'
 
 
 function Contact() {
@@ -10,7 +11,7 @@ function Contact() {
 	const [isEnabled, setIsEnabled] = useState(true)
 	const [sendText, setSendText] = useState("Send Message")
 
-	const form = useRef();
+	const form = useRef(null);
 
 	const sendEmail = () => {
 		setSendText("Sending");
@@ -71,9 +72,9 @@ function Contact() {
 									Columbia, MD 21045
 								</li>
 							</a>
-								<li className="icon solid fa-phone"><a href="tel:+4432760751">(443) 276-0761</a></li>
-								<li className="icon solid fa-envelope"><a href="#">admin@blumoondriving.com</a></li>
-								<li className="icon brands fa-facebook-f"><a href="#">facebook.com/untitled-tld</a></li>
+								<li className="icon solid fa-phone"><a href="tel://14432760761/">(443) 276-0761</a></li>
+								<li className="icon solid fa-envelope"><a href="mailto:blumoondriving@gmail.com">blumoondriving@gmail.com</a></li>
+								<li className="icon brands fa-facebook-f"><a href="#">facebook.com/blumoondriving</a></li>
 							</ul>
 						</div>
 					</section>

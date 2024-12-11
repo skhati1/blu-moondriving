@@ -108,22 +108,18 @@
     display: none;
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1100px){
 
     #header {
 		line-height: 2.75em;
 	}
 
 	#header nav {
-		top: 0;
-		right: 0;
 		height: inherit;
-		line-height: inherit;
 	}
 
 	#header nav a {
 		height: inherit;
-		line-height: inherit;
 	}
 
 	#header nav a[href="#menu"] {

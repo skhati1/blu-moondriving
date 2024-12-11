@@ -47,16 +47,16 @@ export default function Header() {
 	return (
 		<>
 			<header id="header">
-				<h1>
+				<span>
 					<img src={logo} alt="Blu-Moon Driving Logo" width={80} height={80} />
 					<a href="/" className="logoName poppins-medium">Blu-Moon Driving School</a>
 					<br />
-				</h1>
+				</span>
 				<nav className="desktopMenu">
 					{getLinks(false)}
 				</nav>
 				<nav className="mobileMenu">
-					<a href="#" className="small" onClick={showMenu}>Menu</a>
+					<a href="#" className="small" onClick={showMenu}><span className="icon solid fa-bars"></span></a>
 				</nav>
 
 				{isPopUpMenuVisible ? 

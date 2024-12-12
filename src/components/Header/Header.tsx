@@ -19,7 +19,7 @@ export default function Header() {
 		const items: { link: string, name: string }[] =
 			[
 				{ link: "/", name: "Home" },
-				{ link: "/about", name: "About Us"},
+				{ link: "/about", name: "About Us" },
 				{ link: "/services", name: "Services" },
 				{ link: "/resources", name: "Resources" },
 				{ link: "/faq", name: "FAQ" },
@@ -27,20 +27,20 @@ export default function Header() {
 				{ link: "/contact", name: "Contact" },
 			]
 
-		return (
-			<>
-				{items.map(({ link, name }) => {
-					return (
-						<>
-							<NavLink
-								to={link}
-								onClick={hideMenu}>{name}
-							</NavLink>
-							{isMobile ? <br /> : <></>}
-						</>
-					)
-				})}
-			</>
+			return (
+				<>
+					{items.map(({ link, name }) => {
+						return (
+							<>
+								<NavLink
+									to={link}
+									onClick={hideMenu}>{name}
+								</NavLink>
+								{isMobile ? <br /> : <></>}
+							</>
+						)
+					})}
+				</>
 		)
 	}
 
@@ -56,19 +56,21 @@ export default function Header() {
 					{getLinks(false)}
 				</nav>
 				<nav className="mobileMenu">
-					<a href="#" className="small" onClick={showMenu}><span className="icon solid fa-bars"></span></a>
+					<a href="#" className="small" onClick={showMenu}>
+						<span className="icon solid fa-bars"></span>
+					</a>
 				</nav>
 
-				{isPopUpMenuVisible ? 
-				<div className="modal">
-					<div className="modal-content" onClick={hideMenu}>
-						<div>
-							{getLinks(true)}
+				{isPopUpMenuVisible ?
+					<div className="modal">
+						<div className="modal-content" onClick={hideMenu}>
+							<div>
+								{getLinks(true)}
+							</div>
+							<button className="small" onClick={hideMenu}>Close</button>
 						</div>
-						<button className="small" onClick={hideMenu}>Close</button>
 					</div>
-				</div>
-				: <></>}
+					: <></>}
 
 			</header>
 		</>

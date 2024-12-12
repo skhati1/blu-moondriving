@@ -1,12 +1,18 @@
-#content {
-	padding: 3em 0 1em 0;
-	margin: 0 auto;
-}
-
 @media screen and (max-width: 736px) {
+
+	#content {
+		margin-left: 0em;
+		margin-right: 0em;
+	}
 
 	#content p {
 		font-size: 0.8em;
 	}
 
+}
+
+#content {
+	padding: 3em 0 1em 0;
+	margin: 0 auto;
+	max-width: 90%;
 }

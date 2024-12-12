@@ -1,9 +1,9 @@
-import Banner from "../components/Banner/Banner";
+import Content from "../components/layout/Content/Content";
 
 export default function Student(){
     return(
         <>
-        <Banner />
+        <Content />
         </>
     )
 }

@@ -11,6 +11,10 @@ export default function Header() {
 		setIsPopUpMenuVisible(true)
 	}
 
+	const toggleMenu = () => {
+		setIsPopUpMenuVisible(!isPopUpMenuVisible)
+	}
+
 	const hideMenu = () => {
 		setIsPopUpMenuVisible(false)
 	}
@@ -56,7 +60,7 @@ export default function Header() {
 					{getLinks(false)}
 				</nav>
 				<nav className="mobileMenu">
-					<a href="#" className="small" onClick={showMenu}>
+					<a href="#" className="small" onClick={toggleMenu}>
 						<span className="icon solid fa-bars"></span>
 					</a>
 				</nav>

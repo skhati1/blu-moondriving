@@ -1,10 +1,9 @@
-import Banner from "../components/Banner/Banner";
+import Content from "../components/layout/Content/Content";
 
-export default function Admin(){
-    return(
-        <>
-
-<Banner />            <h2 style={{textAlign: "center"}}>Admin Login Coming Soon</h2>
-        </>
+export default function Admin() {
+    return (
+        <Content>
+            <h1>Admin Login Coming Soon</h1>
+        </Content>
     )
 }

@@ -1,12 +1,15 @@
 import Content from "../components/layout/Content/Content";
+import logo from "../assets/logo.png"
+import '../assets/about-us.css'
+import Krishna from '../assets/krishna.png'
 
 export default function AboutUs() {
     return (
         <>
             <Content>
-                <section id="wrapper">
-                    <h1>About Blu-Moon Driving School</h1>
-                    <p>We are dedicated to empowering new drivers with the skills, confidence, and
+                <h1>About Us</h1>
+                <div className="aboutContainer">
+                    <p className="aboutText">We are dedicated to empowering new drivers with the skills, confidence, and
                         knowledge they need to be safe and responsible on the road. At Blu-Moon, we believe
                         that driving is more than just a skill—it’s a commitment to safety, awareness, and
                         respect for others.
@@ -17,21 +20,19 @@ export default function AboutUs() {
                         and supportive way. From mastering the basics to navigating complex road situations,
                         we’re here to guide you every step of the way.
                     </p>
-                    <h3 className="major">Why Choose Blu-Moon Driving School?</h3>
-                    <ul>
-                        <li><b><i>Experienced &amp; Dedicated Instructor(s)</i></b>: Our team is trained to provide patient,
-                            clear, and thorough instruction for drivers at any experience level.</li>
-                        <li><b><i>Flexible Scheduling</i></b>: We understand that everyone has a busy schedule. That’s
-                            why we offer convenient lesson times to fit your lifestyle.</li>
-                        <li><b><i>Modern Techniques</i></b>: We stay updated on the latest driving techniques and best
-                            practices, ensuring that you learn what’s most relevant and effective.</li>
-                        <li><b><i>Focus on Safety</i></b>: At Blu-Moon, safety is our top priority. We not only prepare
-                            you for your test but also help you become a defensive and responsible driver
-                            for life.</li>
-                    </ul>
-                    <p>Ready to start your journey to becoming a confident driver? Join Blu-Moon Driving
-                        School today and let us help you achieve the freedom that comes with driving!</p>
-                </section>
+                    <img src={logo} alt="Blu-Moon Driving School Logo" className="logoImage" />
+                </div>
+
+                <h1>Our Staff</h1>
+                <div className="about-card-wrapper">
+                    <div className="about-card">
+                        <img src={Krishna} alt="Krishna Khatiwada Picture" />
+                        <div className="about-container">
+                            <h4><b>Krishna Khatiwada (Krish)</b></h4>
+                            <p>Founder, CEO, and Driving Instructor helping Marylanders get on the road since 2021</p>
+                        </div>
+                    </div>
+                </div>
             </Content>
         </>
     )

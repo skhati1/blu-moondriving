@@ -51,8 +51,8 @@ export default function Header() {
 	return (
 		<>
 			<header id="header">
-				<span>
-					<img src={logo} alt="Blu-Moon Driving Logo" width={80} height={80} />
+				<span className="headerSpan">
+					<img src={logo} alt="Blu-Moon Driving Logo" className="logoHeaderImage" />
 					<a href="/" className="logoName poppins-medium">Blu-Moon Driving School</a>
 					<br />
 				</span>

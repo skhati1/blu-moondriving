@@ -71,7 +71,7 @@ export default function Header() {
 							<div>
 								{getLinks(true)}
 							</div>
-							<button className="small" onClick={hideMenu}>Close</button>
+							<button className="small closebutton" onClick={hideMenu}>Close</button>
 						</div>
 					</div>
 					: <></>}

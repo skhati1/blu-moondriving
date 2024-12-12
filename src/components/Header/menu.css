@@ -164,7 +164,8 @@ body.is-menu-visible #menu .inner {
     -webkit-animation-name: slideIn;
     -webkit-animation-duration: 0.4s;
     animation-name: slideIn;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    height: inherit;
 }
 
 /* Add Animation */

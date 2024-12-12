@@ -7,7 +7,7 @@ export default function Resources() {
 	return (
 		<>
 			<Content>
-				<h3 className="major">Resources</h3>
+				<h1 className="major">Resources</h1>
 				<ul className="alt">
 					<li>
 						<a href="https://mva.maryland.gov/drivers/Pages/non-compliant-drivers-licenses.aspx"

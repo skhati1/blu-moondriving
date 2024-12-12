@@ -8,7 +8,7 @@ export default function Services() {
 	return (
 		<>
 			<Content>
-				<h1>Services</h1>
+				<h1 className="major">Services</h1>
 			</Content>
 			<section id="">
 				<section id="one" className="wrapper spotlight style1">

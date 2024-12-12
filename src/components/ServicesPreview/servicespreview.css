@@ -4,38 +4,45 @@
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
-.card {
+.services-card {
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
+    text-align: center;
+    overflow: auto;
 }
 
 /* On mouse-over, add a deeper shadow */
-.card:hover {
+.services-card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Add some padding inside the card container */
-.container {
+.services-container {
     padding: 2px 16px;
 }
 
-.card img {
-    width: 350px;
+.services-card img {
+    max-width: 300px;
+    height: auto;
 }
 
 h2 {
     text-align: center;
 }
 
-.container h4{
+.services-container h4{
     text-align: center;
 }
 
-.container ul {
-    font-size: 1.3rem;
+.services-container ul {
     margin-bottom: 0px;
+    list-style-type: none;
 }
 .center {
     text-align: center;
+}
+
+ul li {
+    padding-left: 0em;
 }

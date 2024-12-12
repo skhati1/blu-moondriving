@@ -3,7 +3,6 @@ import emailjs from '@emailjs/browser';
 import { useForm } from "react-hook-form";
 import './contact.css'
 
-
 function Contact() {
 
 	const { register, formState: { errors }, handleSubmit } = useForm();
@@ -36,9 +35,6 @@ function Contact() {
 		<>
 			<section id="footer">
 				<div className="inner">
-					<h2 className="major">Contact Us</h2>
-					<p>Ready to start your journey to becoming a confident driver? Join Blu-Moon Driving
-						School today and let us help you achieve the freedom that comes with driving!</p>
 					<form ref={form} onSubmit={handleSubmit(sendEmail)}>
 						<div className="fields">
 							<div className="field">

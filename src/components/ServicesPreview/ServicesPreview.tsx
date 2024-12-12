@@ -10,9 +10,9 @@ export default function ServicesPreview() {
         <>
             <h2>Our Services</h2>
             <div className="servicesPreview">
-                <div className="card">
+                <div className="services-card">
                     <img src={ImageOne} alt="Basic Course" />
-                    <div className="container">
+                    <div className="services-container">
                         <h4><b>Basic Course</b></h4>
                         <ul>
                             <li>30 Hour Classroom Session</li>
@@ -20,9 +20,9 @@ export default function ServicesPreview() {
                         </ul>
                     </div>
                 </div>
-                <div className="card">
+                <div className="services-card">
                     <img src={ImageTwo} alt="Advance Course" />
-                    <div className="container">
+                    <div className="services-container">
                         <h4><b>Advance Course</b></h4>
                         <ul>
                             <li>30 Hour Classroom Session</li>
@@ -30,9 +30,9 @@ export default function ServicesPreview() {
                         </ul>
                     </div>
                 </div>
-                <div className="card">
+                <div className="services-card">
                     <img src={ImageThree} alt="Premium Course" />
-                    <div className="container">
+                    <div className="services-container">
                         <h4><b>Premium Course</b></h4>
                         <ul>
                             <li>30 Hour Classroom Session</li>
@@ -40,9 +40,9 @@ export default function ServicesPreview() {
                         </ul>
                     </div>
                 </div>
-                <div className="card">
+                <div className="services-card">
                     <img src={ImageFour} alt="Refresher Courses" />
-                    <div className="container">
+                    <div className="services-container">
                         <h4><b>Refresher Course</b></h4>
                         <ul>
                             <li>Hourly In-Car Sessions Only</li>

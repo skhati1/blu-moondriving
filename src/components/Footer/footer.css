@@ -1,5 +1,3 @@
-/* Footer */
-
 #footer .inner {
     padding: 5em 0 3em 0;
     display: -moz-flex;
@@ -15,7 +13,7 @@
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin: 0 auto;
-    width: 70em;
+    max-width: 80em;
 }
 
 #footer .inner>* {

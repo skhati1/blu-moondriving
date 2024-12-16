@@ -7,10 +7,6 @@ import './header.css'
 export default function Header() {
 	const [isPopUpMenuVisible, setIsPopUpMenuVisible] = useState(false)
 
-	const showMenu = () => {
-		setIsPopUpMenuVisible(true)
-	}
-
 	const toggleMenu = () => {
 		setIsPopUpMenuVisible(!isPopUpMenuVisible)
 	}

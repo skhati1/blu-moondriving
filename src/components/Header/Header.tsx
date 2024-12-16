@@ -35,13 +35,12 @@ export default function Header() {
 				<>
 					{items.map(({ link, name }) => {
 						return (
-							<>
 								<NavLink
+									key={name}
 									to={link}
-									onClick={hideMenu}>{name}
+									onClick={hideMenu}>{name}{isMobile ? <br /> : <></>}
 								</NavLink>
-								{isMobile ? <br /> : <></>}
-							</>
+								
 						)
 					})}
 				</>

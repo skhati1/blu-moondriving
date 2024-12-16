@@ -17,13 +17,11 @@ export default function Features(props: FeaturesProps) {
             <section className="features">
                 {props.items.map(({ title, description, image }) => {
                     return (
-                        <>
-                            <article>
-                                <a href="#" className="image"><img src={image} alt="" /></a>
-                                <h3 className="major">{title}</h3>
-                                <p>{description}</p>
-                            </article>
-                        </>
+                        <article key={title}>
+                            <a href="#" className="image"><img src={image} alt="" /></a>
+                            <h3 className="major">{title}</h3>
+                            <p>{description}</p>
+                        </article>
                     )
                 })}
             </section>

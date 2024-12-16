@@ -1,10 +1,11 @@
 import Content from "../components/layout/Content/Content";
 import logo from "../assets/logo.png"
 import '../assets/about-us.css'
+import AnimatedPage from "../components/AnimatedPage";
 
 export default function AboutUs() {
     return (
-        <>
+        <AnimatedPage>
             <Content>
                 <h1 className="major">About Us</h1>
                 <div className="aboutContainer">
@@ -22,6 +23,6 @@ export default function AboutUs() {
                     <img src={logo} alt="Blu-Moon Driving School Logo" className="logoImage" />
                 </div>
             </Content>
-        </>
+        </AnimatedPage>
     )
 }

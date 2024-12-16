@@ -3,10 +3,11 @@ import ImageTwo from "../assets/home/02.jpg";
 import ImageThree from "../assets/home/03.jpg";
 import ImageFour from "../assets/home/04.jpg";
 import Content from "../components/layout/Content/Content";
+import AnimatedPage from "../components/AnimatedPage";
 
 export default function Services() {
 	return (
-		<>
+		<AnimatedPage>
 			<Content>
 				<h1 className="major">Services</h1>
 			</Content>
@@ -65,6 +66,6 @@ export default function Services() {
 					</div>
 				</section>
 			</section>
-		</>
+		</AnimatedPage>
 	)
 }

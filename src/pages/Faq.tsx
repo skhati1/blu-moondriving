@@ -1,8 +1,9 @@
+import AnimatedPage from "../components/AnimatedPage";
 import Content from "../components/layout/Content/Content";
 
 export default function Faq() {
 	return (
-		<>
+		<AnimatedPage>
 			<Content>
 				<h1 className="major">FAQ</h1>
 				<ol>
@@ -215,6 +216,6 @@ export default function Faq() {
 
 				</ol>
 			</Content>
-		</>
+		</AnimatedPage>
 	)
 }

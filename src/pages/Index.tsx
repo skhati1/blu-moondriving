@@ -4,6 +4,7 @@ import Hero from "../components/Hero/Hero";
 import ServicesPreview from "../components/ServicesPreview/ServicesPreview";
 import Features, { FeaturesPropItem } from "../components/Features/Features";
 import { NavLink } from "react-router-dom";
+import AnimatedPage from "../components/AnimatedPage";
 
 export default function Index() {
 
@@ -30,7 +31,7 @@ export default function Index() {
 		}]
 
 	return (
-		<>
+		<AnimatedPage>
 			<section id="wrapper">
 				<Hero />
 				<Content>
@@ -51,6 +52,6 @@ export default function Index() {
 					</p>
 				</Content>
 			</section>
-		</>
+		</AnimatedPage>
 	)
 }

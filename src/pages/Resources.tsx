@@ -2,10 +2,11 @@ import Content from "../components/layout/Content/Content";
 import RookieDriverLog from "../assets/forms/Rookie Driver BTW Log.pdf"
 import DriversManual from "../assets/forms/DriversManual.pdf"
 import BluMoonPolicy from "../assets/forms/Blu-MoonPolicy.pdf"
+import AnimatedPage from "../components/AnimatedPage";
 
 export default function Resources() {
 	return (
-		<>
+		<AnimatedPage>
 			<Content>
 				<h1 className="major">Resources</h1>
 				<ul className="alt">
@@ -85,6 +86,6 @@ export default function Resources() {
 						</a>
 					</li>
 				</ul></Content>
-		</>
+		</AnimatedPage>
 	)
 }

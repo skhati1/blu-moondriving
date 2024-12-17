@@ -5,8 +5,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="refresh" content="0; URL='https://blumoondriving.com'" />
     <title>404 - redirect</title>
+
+    <script>
+        window.onload = function() {
+          // Get the current URL path
+          var currentPath = window.location.pathname;
+      
+          // Redirect to a desired target URL, appending the current path
+          window.location.href = "https://blumoondriving.com/" + currentPath;
+        };
+      </script>
 </head>
 
 <body></body>

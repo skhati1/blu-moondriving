@@ -19,7 +19,7 @@ export default function Faq() {
 					<div className="field">
 						<li><label>
 							What are the enrollment requirements for Driver’s Education?</label></li>
-						<span>You have to live in Maryland and be at least 15 years and 9 months old.
+						<span>You have to live in Maryland and be at least 15 years.
 						</span>
 					</div>
 
@@ -88,21 +88,7 @@ export default function Faq() {
 							Night time driving.
 						</span>
 					</div>
-
-
-					<br />
-					<div className="field">
-						<li><label>
-							Can I use my own car for my road test or will you provide a car?
-						</label></li>
-						<span>
-							You can use your own car, but if you need to rent one, please give us a call, as we
-							provide this service for an additional fee.
-						</span>
-					</div>
-
-
-
+					
 					<br />
 					<div className="field">
 						<li><label>

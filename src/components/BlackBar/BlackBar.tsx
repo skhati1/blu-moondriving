@@ -9,13 +9,13 @@ export default function BlackBar() {
         <div className='blackBar'>
             <div className='blackBarRow'>
                 <a href="tel://14432760761/">
-                    <span className="icon solid fa-phone"> {isDesktop ? '(443) 276-0761' : '' }</span>
+                    <span className="icon solid fa-phone"> {isDesktop ? ' (443) 276-0761' : '' }</span>
                 </a>
                 <a href="https://maps.app.goo.gl/1LRSuYzvnpQth5T19" target="_blank">
-                    <span className="icon solid fa-map"> {isDesktop ? '8950 Old Annapolis Road #115, Columbia, MD 21045' : '' }</span>
+                    <span className="icon solid fa-map"> {isDesktop ? ' 8950 Old Annapolis Road #115, Columbia, MD 21045' : '' }</span>
                 </a>
                 <a href="mailto:blumoondriving@gmail.com">
-                    <span className="icon solid fa-envelope">{isDesktop ? 'blumoondriving@gmail.com' : ''} </span>
+                    <span className="icon solid fa-envelope">{isDesktop ? ' blumoondriving@gmail.com' : ''} </span>
                 </a>
             </div>
         </div>

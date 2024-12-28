@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png"
 import './menu.css'
 import './header.css'
@@ -16,30 +16,36 @@ export default function Header() {
 	}
 
 	const getLinks = (isMobile: boolean): React.ReactNode => {
-		const items: { link: string, name: string }[] =
+		const items: { link: string, name: string, isExternalLink: boolean }[] =
 			[
-				{ link: "/", name: "Home" },
-				{ link: "/about", name: "About Us" },
-				{ link: "/services", name: "Services" },
-				{ link: "/resources", name: "Resources" },
-				{ link: "/faq", name: "FAQ" },
-				{ link: "/admin", name: "Admin" },
-				{ link: "/contact", name: "Contact" },
+				{ link: "/", name: "Home", isExternalLink: false },
+				{ link: "/about", name: "About Us", isExternalLink: false },
+				{ link: "/services", name: "Services", isExternalLink: false },
+				{ link: "/resources", name: "Resources", isExternalLink: false },
+				{ link: "/faq", name: "FAQ", isExternalLink: false },
+				{ link: "https://www.tdsm.app/CentralizeAdmin/Login/Login?encID=biWqhzALcig_EQUAL_", name: "Admin", isExternalLink: true },
+				{ link: "/contact", name: "Contact", isExternalLink: false },
 			]
 
-			return (
-				<>
-					{items.map(({ link, name }) => {
-						return (
-								<NavLink
-									key={name}
-									to={link}
-									onClick={hideMenu}>{name}{isMobile ? <br /> : <></>}
-								</NavLink>
-								
-						)
-					})}
-				</>
+		return (
+			<>
+				{items.map(({ link, name, isExternalLink }) => {
+					if (!isExternalLink) return (
+						<NavLink
+							key={name}
+							to={link}
+							onClick={hideMenu}>{name}{isMobile ? <br /> : <></>}
+						</NavLink>
+
+					)
+					return (
+						<Link key={name} to={link} target="_blank" rel="noopener noreferrer">
+							{name}
+						</Link>
+					)
+
+				})}
+			</>
 		)
 	}
 
@@ -48,7 +54,7 @@ export default function Header() {
 			<header id="header">
 				<span className="headerSpan">
 					<img src={logo} alt="Blu-Moon Driving Logo" className="logoHeaderImage" />
-					<a href="/" className="logoName poppins-medium">Blu-Moon Driving School</a>
+					<a href="/" className="logoName logoFont">Blu-Moon Driving School</a>
 					<br />
 				</span>
 				<nav className="desktopMenu">

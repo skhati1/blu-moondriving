@@ -148,12 +148,16 @@
 .logoName {
 	vertical-align: top;
 	font-size: x-large;
-	font-weight: 800;
+	font-weight: 600;
 	text-decoration: none;
 }
 
-.poppins-medium {
-	font-family: "Poppins", sans-serif;
+a {
+	border-bottom: none;
+}
+
+.logoFont{
+	font-family: "Nunito Sans", sans-serif;
 }
 
 .logoContainer {

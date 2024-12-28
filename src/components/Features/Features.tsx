@@ -11,7 +11,6 @@ export interface FeaturesPropItem {
 }
 
 export default function Features(props: FeaturesProps) {
-    //<a href="#" className="special">Learn more</a>
     return (
         <>
             <section className="features">

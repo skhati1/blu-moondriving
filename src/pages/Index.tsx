@@ -43,8 +43,6 @@ export default function Index() {
 					<Features items={aboutUsFeatures} />
 				</Content>
 				<Content>
-
-
 					<p style={{ textAlign: "center" }}>Ready to start your journey to becoming a confident driver? Join Blu-Moon Driving
 						School today and let us help you achieve the freedom that comes with driving!
 						<br /><br />

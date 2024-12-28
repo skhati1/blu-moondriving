@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Link, Route, Routes } from 'react-router-dom'
 import Header from './components/Header/Header'
 import ContactUs from './pages/ContactUs'
 import Index from './pages/Index'
@@ -25,7 +25,6 @@ function App() {
             <Route path="/faq" element={<Faq />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/student" element={<Student />} />
-            <Route path="/admin" element={<Admin />} />
             <Route path="/about" element={<AboutUs />} />
           </Routes>
         <Footer />

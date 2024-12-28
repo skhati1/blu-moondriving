@@ -9,7 +9,10 @@
 .blackBarRow {
     display: flex;
     gap: 45px;
-    padding: 5px;
     flex-direction: row;
     justify-content: center;
+
+    a {
+        border-bottom: none;
+    }
 }

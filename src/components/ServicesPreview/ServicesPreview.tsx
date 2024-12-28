@@ -17,7 +17,8 @@ export default function ServicesPreview() {
                         <ul>
                             <li>30 Hour Classroom Session</li>
                             <li>6 Hour Behind The Wheel</li>
-                        </ul>
+                        </ul><br />
+                        <a href="" className="special">Register</a>
                     </div>
                 </div>
                 <div className="services-card">
@@ -27,7 +28,8 @@ export default function ServicesPreview() {
                         <ul>
                             <li>30 Hour Classroom Session</li>
                             <li>8 Hour Behind The Wheel</li>
-                        </ul>
+                        </ul><br />
+                        <a href="" className="special">Register</a>
                     </div>
                 </div>
                 <div className="services-card">
@@ -37,7 +39,8 @@ export default function ServicesPreview() {
                         <ul>
                             <li>30 Hour Classroom Session</li>
                             <li>10 Hour Behind The Wheel</li>
-                        </ul>
+                        </ul><br />
+                        <a href="" className="special">Register</a>
                     </div>
                 </div>
                 <div className="services-card">
@@ -46,8 +49,9 @@ export default function ServicesPreview() {
                         <h4><b>Refresher Course</b></h4>
                         <ul>
                             <li>Hourly In-Car Sessions Only</li>
-                        </ul>
-                        (2, 4, 6, 8 or 10 Hours)
+                            <li>(2, 4, 6, 8 or 10 Hours)</li>
+                        </ul><br />
+                        <a href="" className="special">Register</a>
                     </div>
                 </div>
             </div>

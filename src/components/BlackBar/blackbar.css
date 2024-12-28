@@ -13,12 +13,3 @@
     flex-direction: row;
     justify-content: center;
 }
-
-
-@media (max-width: 800px){
-    .blackBarRow {
-        flex-direction: column;
-        gap: 5px;
-        padding: 0px;
-    }
-}

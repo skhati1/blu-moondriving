@@ -40,7 +40,7 @@ export default function Header() {
 					)
 					return (
 						<Link key={name} to={link} target="_blank" rel="noopener noreferrer">
-							{name}
+							{name}{isMobile ? <br /> : <></>}
 						</Link>
 					)
 

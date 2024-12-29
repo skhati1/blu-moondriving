@@ -95,7 +95,7 @@ export default function Index() {
                             <li>Hourly In-Car Sessions Only</li>
                             <li>2, 4, 6, 8 or 10 Hours</li>
                         </ul><br />
-                        Price <span className="price">${REFRESHER_PACKAGE_PRICE}</span><br /><br />
+                        Price <span className="price">${REFRESHER_PACKAGE_PRICE}</span> (each 2 hour session)<br /><br />
                         <a href={REFRESHER_ENROLLMENT} className="special">Register</a>
                     </div>
                 </div>

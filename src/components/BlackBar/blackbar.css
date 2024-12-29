@@ -16,3 +16,9 @@
         border-bottom: none;
     }
 }
+
+.facebookLogo {
+    font-weight: 800;
+    font-size: large;
+    vertical-align: top;
+}

@@ -17,6 +17,9 @@ export default function BlackBar() {
                 <a href="mailto:blumoondriving@gmail.com">
                     <span className="icon solid fa-envelope">{isDesktop ? ' blumoondriving@gmail.com' : ''} </span>
                 </a>
+                <a href="https://www.facebook.com/profile.php?id=61571385867371" target="_blank">
+                    <span><span className="facebookLogo"> f </span> {isDesktop ? ' Facebook' : ''} </span>
+                </a>
             </div>
         </div>
     )

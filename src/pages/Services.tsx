@@ -4,6 +4,16 @@ import ImageThree from "../assets/home/03.jpg";
 import ImageFour from "../assets/home/04.jpg";
 import Content from "../components/layout/Content/Content";
 import AnimatedPage from "../components/AnimatedPage";
+import { 
+    BASIC_PACKAGE_PRICE,
+    ADVANCE_PACKAGE_PRICE,
+    PREMIUM_PACKAGE_PRICE,
+    REFRESHER_PACKAGE_PRICE,
+	BASIC_ENROLLMENT,
+	ADVANCE_ENROLLMENT,
+	PREMIUM_ENROLLMENT,
+	REFRESHER_ENROLLMENT
+} from "../assets/links"
 
 export default function Services() {
 	const features = [
@@ -15,7 +25,8 @@ export default function Services() {
 			title: "Basic Course",
 			subtitle: "30 Hour classroom & 6 Hour Behind-The-Wheel Lesson",
 			description: "This course meets the Minimum Educational Requirements as mandated by Motor Vehicle Administration of Maryland for a new Driver to obtain the provisional license.",
-			linkUrl: ''
+			linkUrl: BASIC_ENROLLMENT,
+			price: BASIC_PACKAGE_PRICE
 		},
 		{
 			id: "two",
@@ -25,7 +36,8 @@ export default function Services() {
 			title: "Advanced Course",
 			subtitle: "30 Hour classroom & 8 Hour Behind-The-Wheel Lesson",
 			description: "This course Meets the Minimum Educational Requirements as mandated by Motor Vehicle Administration of Maryland for a new Driver to obtain the provisional license plus 2 Additional hours of driving practice to gain defensive driving skills to strengthen the Learner’s confidence.",
-			linkUrl: ''
+			linkUrl: ADVANCE_ENROLLMENT,
+			price: ADVANCE_PACKAGE_PRICE
 		},
 		{
 			id: "three",
@@ -35,7 +47,8 @@ export default function Services() {
 			title: "Premium Course",
 			subtitle: "30 Hour classroom & 10 Hour Behind-The-Wheel Lesson",
 			description: "This course Meets the Minimum Educational Requirements as mandated by Motor Vehicle Administration of Maryland for a new Driver to obtain the provisional license plus 4 Extra hours of driving practice to gain defensive driving skills to strengthen the Learner’s Confidence. And more, it helps a learner to develop safe driving habits in different types of road conditions, including residential, urban, rural and even highway traffic.",
-			linkUrl: ''
+			linkUrl: PREMIUM_ENROLLMENT,
+			price: PREMIUM_PACKAGE_PRICE
 		},
 		{
 			id: "three",
@@ -45,7 +58,8 @@ export default function Services() {
 			title: "Refresher Course",
 			subtitle: "Practice Hours Only",
 			description: "Haven’t driven in a while? Our refresher course will help you regain driving confidence, update your skills, and keep you safe on today’s roads.",
-			linkUrl: ''
+			linkUrl: REFRESHER_ENROLLMENT,
+			price: REFRESHER_PACKAGE_PRICE
 		}
 	]
 	return (
@@ -64,7 +78,9 @@ export default function Services() {
 									<p><em>{item.subtitle}</em><br />
 										{item.description}
 									</p>
-									<a href={item.linkUrl} className="special">Register</a>
+									Price <span className="price">${item.price}</span><br /><br />
+									<a href={item.linkUrl} className="special">Register Now</a>
+									<br />
 								</div>
 							</div>
 						</section>

@@ -45,3 +45,8 @@ h2 {
 ul li {
     padding-left: 0em;
 }
+
+.price {
+ font-weight: 600;
+ text-decoration: underline;
+}

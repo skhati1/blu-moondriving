@@ -200,6 +200,18 @@ export default function Faq() {
 						</span>
 					</div>
 
+					<br />
+					<div className="field">
+						<li><label>
+
+							What is the refund policy?
+						</label></li>
+						<span>
+
+							As required by MVA MD, refunds will be issued on a pro-rated basis for incomplete classes. Please refer to our Terms and Conditions from the "Resources" page or call us discuss refund options.
+						</span>
+					</div>
+					<br />
 				</ol>
 			</Content>
 		</AnimatedPage>

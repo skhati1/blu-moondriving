@@ -60,7 +60,7 @@ export default function Index() {
                             <li>6 Hour Behind The Wheel</li>
                         </ul><br />
                         Price <span className="price">${BASIC_PACKAGE_PRICE}</span><br /><br />
-                        <a href={BASIC_ENROLLMENT} className="special">Register</a>
+                        <a href={BASIC_ENROLLMENT} target="_blank" className="special">Register</a>
                     </div>
                 </div>
                 <div className="services-card">
@@ -72,7 +72,7 @@ export default function Index() {
                             <li>8 Hour Behind The Wheel</li>
                         </ul><br />
                         Price <span className="price">${ADVANCE_PACKAGE_PRICE}</span><br /><br />
-                        <a href={ADVANCE_ENROLLMENT} className="special">Register</a>
+                        <a href={ADVANCE_ENROLLMENT} target="_blank" className="special">Register</a>
                     </div>
                 </div>
                 <div className="services-card">
@@ -84,7 +84,7 @@ export default function Index() {
                             <li>10 Hour Behind The Wheel</li>
                         </ul><br />
                         Price <span className="price">${PREMIUM_PACKAGE_PRICE}</span><br /><br />
-                        <a href={PREMIUM_ENROLLMENT} className="special">Register</a>
+                        <a href={PREMIUM_ENROLLMENT} target="_blank" className="special">Register</a>
                     </div>
                 </div>
                 <div className="services-card">
@@ -96,7 +96,7 @@ export default function Index() {
                             <li>2, 4, 6, 8 or 10 Hours</li>
                         </ul><br />
                         Price <span className="price">${REFRESHER_PACKAGE_PRICE}</span> (each 2 hour session)<br /><br />
-                        <a href={REFRESHER_ENROLLMENT} className="special">Register</a>
+                        <a href={REFRESHER_ENROLLMENT} target="_blank" className="special">Register</a>
                     </div>
                 </div>
             </div>

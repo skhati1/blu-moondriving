@@ -79,7 +79,7 @@ export default function Services() {
 										{item.description}
 									</p>
 									Price <span className="price">${item.price}</span><br /><br />
-									<a href={item.linkUrl} className="special">Register Now</a>
+									<a href={item.linkUrl} target="_blank" className="special">Register Now</a>
 									<br />
 								</div>
 							</div>

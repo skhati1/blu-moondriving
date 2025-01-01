@@ -54,7 +54,8 @@ function Contact() {
 							</div>
 							<div className="field">
 								<label htmlFor="phone">Phone</label>
-								<input type="tel" id="phone" />
+								<input type="tel" id="phone" {...register("phone", { required: true })} aria-invalid={error.phone ? "true" : "false"} />
+								{errors.phone?.type === 'required' && <p role="alert">Phone is reuqired</p>}
 							</div>
 							<div className="field">
 								<label htmlFor="message">Message</label>

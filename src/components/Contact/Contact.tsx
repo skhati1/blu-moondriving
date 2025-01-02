@@ -53,9 +53,13 @@ function Contact() {
 								{errors.email?.type === 'required' && <p role="alert">Email is required</p>}
 							</div>
 							<div className="field">
-								<label htmlFor="phone">Phone</label>
-								<input type="tel" id="phone" {...register("phone", { required: true })} aria-invalid={error.phone ? "true" : "false"} />
-								{errors.phone?.type === 'required' && <p role="alert">Phone is reuqired</p>}
+								<label htmlFor="phone">Phone: <span className="format">(Please use format 123-456-7890)</span></label>
+								<input type="tel" 
+									id="phone" 
+									{...register("phone", { required: true })} aria-invalid={errors.phone ? "true" : "false"} 
+									pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+								/>
+								{errors.phone?.type === 'required' && <p role="alert">Phone is required</p>}
 							</div>
 							<div className="field">
 								<label htmlFor="message">Message</label>

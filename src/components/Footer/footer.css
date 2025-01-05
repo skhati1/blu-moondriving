@@ -150,10 +150,9 @@
 
 /* Copyright */
 .copyright {
-	border-top: solid 2px rgba(255, 255, 255, 0.125);
 	list-style: none;
-	margin: 4em 0 2em 0;
-	padding: 2em 0 0 0;
+	margin: 1em 0 1em 0;
+	padding: 0 0 2em 0;
 	width: 100%;
 	text-align: center;
 }
@@ -180,9 +179,20 @@
 }
 
 .footerLinks {
+    padding-top: 2em;
     display: flex;
     justify-content: center;
     ul {
         list-style-type: none;
     }
+    font-size: large;
+}
+
+.callBar {
+    display: fixed;
+    width: 100%;
+    background-color: indianred;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

@@ -40,17 +40,17 @@ function Contact() {
 							<div className="field">
 								<label htmlFor="name">First Name</label>
 								<input type="text" id="firstName" {...register("firstName", { required: true, maxLength: 20 })} aria-invalid={errors.firstName ? "true" : "false"} />
-								{errors.firstName?.type === 'required' && <p role="alert">First name is required</p>}
+								{errors.firstName?.type === 'required' && <p role="alert" className="validationFail">First name is required</p>}
 							</div>
 							<div className="field">
 								<label htmlFor="name">Last Name</label>
 								<input type="text" id="lastName"  {...register("lastName", { required: true, maxLength: 20 })} aria-invalid={errors.lastName ? "true" : "false"} />
-								{errors.lastName?.type === 'required' && <p role="alert">Last name is required</p>}
+								{errors.lastName?.type === 'required' && <p role="alert" className="validationFail">Last name is required</p>}
 							</div>
 							<div className="field">
 								<label htmlFor="email">Email</label>
 								<input type="email" id="email" {...register("email", { required: true })} aria-invalid={errors.email ? "true" : "false"} />
-								{errors.email?.type === 'required' && <p role="alert">Email is required</p>}
+								{errors.email?.type === 'required' && <p role="alert" className="validationFail">Email is required</p>}
 							</div>
 							<div className="field">
 								<label htmlFor="phone">Phone: <span className="format">(Please use format 123-456-7890)</span></label>
@@ -59,12 +59,12 @@ function Contact() {
 									{...register("phone", { required: true })} aria-invalid={errors.phone ? "true" : "false"} 
 									pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
 								/>
-								{errors.phone?.type === 'required' && <p role="alert">Phone is required</p>}
+								{errors.phone?.type === 'required' && <p role="alert" className="validationFail">Phone is required</p>}
 							</div>
 							<div className="field">
 								<label htmlFor="message">Message</label>
 								<textarea id="message" rows={4} {...register("message", { required: true })} aria-invalid={errors.message ? "true" : "false"} ></textarea>
-								{errors.message?.type === 'required' && <p role="alert">Message is required</p>}
+								{errors.message?.type === 'required' && <p role="alert" className="validationFail">Message is required</p>}
 							</div>
 						</div>
 						<ul className="actions">

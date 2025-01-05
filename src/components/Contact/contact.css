@@ -52,3 +52,9 @@ ul.contact li:first-child {
 .format{
     font-family: sans-serif;
 }
+
+.validationFail {
+    color: coral;
+    font-weight: 700;
+    
+}

@@ -7,7 +7,7 @@ export default function ContactUs(){
         <AnimatedPage>
             <Content>
                 <h1 className="major">Contact Us</h1>
-                <p>We would love to hear from you. Please use the form or contact information below to reach out to us!</p>
+                <span>We would love to hear from you. Please use the form or contact information below to reach out to us!</span>
                 <Contact />
             </Content>
         </AnimatedPage>

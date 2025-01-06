@@ -22,3 +22,11 @@
     font-size: large;
     vertical-align: top;
 }
+
+.hoursShown {
+    display: block;
+}
+
+.hoursVisible {
+    display: none;
+}

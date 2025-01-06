@@ -24,14 +24,14 @@ export default function BlackBar() {
                 <a href="mailto:blumoondriving@gmail.com">
                     <span className="icon solid fa-envelope">{isDesktop ? 'blumoondriving@gmail.com' : ''} </span>
                 </a>
-                <span className="icon solid fa-clock" onClick={toggle}>{isDesktop ? '  M - F 11:30 AM - 2:30 PM' : ''}</span>
+                <span className="icon solid fa-clock" onClick={toggle}>{isDesktop ? '  M - W 11:30 AM - 2:30 PM & By Appointments' : ''}</span>
                 <a href="https://www.facebook.com/profile.php?id=61571385867371" target="_blank">
                     <span className="icon brands fa-facebook-f">{isDesktop ? '  Facebook' : ''} </span>
                 </a>
             </div>
 
             <div className={showHours ? 'hoursShown' : 'hoursVisible'}>
-                Hours: Mondays - Fridays 11:30 AM - 2:30 PM
+                Hours: Mondays - Fridays 11:30 AM - 2:30 PM and by appointment
             </div>
         </div>
     )

@@ -12,26 +12,28 @@ export default function BlackBar() {
             setShowHours(!showHours)
         }
     }
+
+    const timingHtml = <span> M-W 11:30AM - 2:30PM & Other Days by Appt</span>
     return (
         <div className='blackBar'>
             <div className='blackBarRow'>
                 <a href="tel://14432760761/">
-                    <span className="icon solid fa-phone"> {isDesktop ? ' (443) 276-0761' : ''}</span>
+                    <span className="icon solid fa-phone barFont"> {isDesktop ? ' (443) 276-0761' : ''}</span>
                 </a>
                 <a href="https://maps.app.goo.gl/1LRSuYzvnpQth5T19" target="_blank">
                     <span className="icon solid fa-map"> {isDesktop ? ' 8950 Old Annapolis Road #115, Columbia, MD 21045' : ''}</span>
                 </a>
                 <a href="mailto:blumoondriving@gmail.com">
-                    <span className="icon solid fa-envelope">{isDesktop ? 'blumoondriving@gmail.com' : ''} </span>
+                    <span className="icon solid fa-envelope">{isDesktop ? ' blumoondriving@gmail.com' : ''} </span>
                 </a>
-                <span className="icon solid fa-clock" onClick={toggle}>{isDesktop ? '  M - W 11:30 AM - 2:30 PM & By Appointments' : ''}</span>
+                <span className="icon solid fa-clock" onClick={toggle}>{isDesktop ? timingHtml : ''}</span>
                 <a href="https://www.facebook.com/profile.php?id=61571385867371" target="_blank">
                     <span className="icon brands fa-facebook-f">{isDesktop ? '  Facebook' : ''} </span>
                 </a>
             </div>
 
             <div className={showHours ? 'hoursShown' : 'hoursVisible'}>
-                Hours: Mondays - Fridays 11:30 AM - 2:30 PM and by appointment
+                Open Mondays - Wednesdays 11:30 AM - 2:30 PM and other days by appointment
             </div>
         </div>
     )

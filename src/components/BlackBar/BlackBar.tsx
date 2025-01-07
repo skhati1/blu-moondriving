@@ -13,7 +13,7 @@ export default function BlackBar() {
         }
     }
 
-    const timingHtml = <span> M-W 11:30AM - 2:30PM & Other Days by Appt</span>
+    const timingHtml = <span> M-W 11:30 AM - 2:30 PM & Other Days by Appt</span>
     return (
         <div className='blackBar'>
             <div className='blackBarRow'>
@@ -26,7 +26,8 @@ export default function BlackBar() {
                 <a href="mailto:blumoondriving@gmail.com">
                     <span className="icon solid fa-envelope">{isDesktop ? ' blumoondriving@gmail.com' : ''} </span>
                 </a>
-                <span className="icon solid fa-clock" onClick={toggle}>{isDesktop ? timingHtml : ''}</span>
+                <a href="#"><span className="icon solid fa-clock" onClick={toggle}>{isDesktop ? timingHtml : ''}</span></a>
+
                 <a href="https://www.facebook.com/profile.php?id=61571385867371" target="_blank">
                     <span className="icon brands fa-facebook-f">{isDesktop ? '  Facebook' : ''} </span>
                 </a>

@@ -61,7 +61,7 @@ export default function Header() {
 					{getLinks(false)}
 				</nav>
 				<nav className="mobileMenu">
-					<a href="#" className="small" onClick={toggleMenu}>
+					<a href="#" className="small" onClick={toggleMenu} aria-label="Mobile Menu">
 						<span className="icon solid fa-bars"></span>
 					</a>
 				</nav>

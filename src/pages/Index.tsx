@@ -54,7 +54,7 @@ export default function Index() {
                 <div className="services-card">
                     <img src={ImageOne} alt="Basic Course" />
                     <div className="services-container">
-                        <h4><b>Basic Course</b></h4>
+                        <h3><b>Basic Course</b></h3>
                         <ul>
                             <li>30 Hour Classroom Session</li>
                             <li>6 Hour Behind The Wheel</li>
@@ -66,7 +66,7 @@ export default function Index() {
                 <div className="services-card">
                     <img src={ImageTwo} alt="Advance Course" />
                     <div className="services-container">
-                        <h4><b>Advance Course</b></h4>
+                        <h3><b>Advance Course</b></h3>
                         <ul>
                             <li>30 Hour Classroom Session</li>
                             <li>8 Hour Behind The Wheel</li>
@@ -78,7 +78,7 @@ export default function Index() {
                 <div className="services-card">
                     <img src={ImageThree} alt="Premium Course" />
                     <div className="services-container">
-                        <h4><b>Premium Course</b></h4>
+                        <h3><b>Premium Course</b></h3>
                         <ul>
                             <li>30 Hour Classroom Session</li>
                             <li>10 Hour Behind The Wheel</li>
@@ -90,7 +90,7 @@ export default function Index() {
                 <div className="services-card">
                     <img src={ImageFour} alt="Refresher Courses" />
                     <div className="services-container">
-                        <h4><b>Refresher Course</b></h4>
+                        <h3><b>Refresher Course</b></h3>
                         <ul>
                             <li>Hourly In-Car Sessions Only</li>
                             <li>2, 4, 6, 8 or 10 Hours</li>

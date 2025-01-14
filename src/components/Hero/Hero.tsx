@@ -1,5 +1,5 @@
 import './hero.css'
-import { GENERIC_ENROLLMENT } from '../../assets/links'
+//import { GENERIC_ENROLLMENT } from '../../assets/links'
 
 export default function Hero() {
     return (
@@ -11,10 +11,11 @@ export default function Hero() {
                     &nbsp;&nbsp; 
                     <a href="tel://14432516427/"><span className="icon solid fa-phone button small"> Cell: (443) 251-6427</span></a>
                 </p>
-                <a href={GENERIC_ENROLLMENT} target="_blank" rel="noopener noreferrer">
-                    <button className="heroAction">Register Now</button>
-                </a>
             </div>
         </div>
     )
+    //
+    //<a href={GENERIC_ENROLLMENT} target="_blank" rel="noopener noreferrer">
+    //<button className="heroAction">Register Now</button>
+    //</a>
 }

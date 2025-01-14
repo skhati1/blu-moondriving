@@ -24,3 +24,19 @@
 .heroAction {
   background-color: rgba(71, 117, 166, 0.95);
 }
+
+.underline {
+  text-decoration: underline;
+}
+
+.whitest-font {
+  color: white ;
+}
+
+.button.icon::before{
+  color: white;
+}
+
+.button.icon {
+  background-color: rgba(84, 136, 190, 0.95);
+}

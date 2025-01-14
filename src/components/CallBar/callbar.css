@@ -1,0 +1,8 @@
+.callBar {
+    display: fixed;
+    width: 100%;
+    background-color: indianred;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

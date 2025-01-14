@@ -178,21 +178,6 @@
 	color: inherit;
 }
 
-.footerLinks {
-    padding-top: 2em;
-    display: flex;
-    justify-content: center;
-    ul {
-        list-style-type: none;
-    }
-    font-size: large;
-}
-
-.callBar {
-    display: fixed;
-    width: 100%;
-    background-color: indianred;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.white-font {
+    color: rgb(175, 170, 170) !important;
 }

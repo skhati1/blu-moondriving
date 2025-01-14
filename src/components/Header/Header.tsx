@@ -19,12 +19,12 @@ export default function Header() {
 		const items: { link: string, name: string, isExternalLink: boolean }[] =
 			[
 				{ link: "/", name: "Home", isExternalLink: false },
-				{ link: "/about", name: "About Us", isExternalLink: false },
 				{ link: "/services", name: "Services", isExternalLink: false },
 				{ link: "/resources", name: "Resources", isExternalLink: false },
 				{ link: "/faq", name: "FAQ", isExternalLink: false },
 				{ link: "https://www.tdsm.app/CentralizeAdmin/Login/Login?encID=biWqhzALcig_EQUAL_", name: "Admin", isExternalLink: true },
 				{ link: "/contact", name: "Contact", isExternalLink: false },
+				{ link: "/about", name: "About Us", isExternalLink: false },
 			]
 
 		return (

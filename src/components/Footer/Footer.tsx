@@ -11,7 +11,7 @@ export default function Footer() {
                     <li className="icon solid fa-phone white-font">&nbsp;&nbsp;<a href="tel://14432760761/">(443) 276-0761</a></li>
                     <li className="icon solid fa-building white-font">&nbsp;&nbsp;<a href="tel://14432516427/">(443) 251-6427</a></li>
                     <li className="icon solid fa-envelope white-font">&nbsp;&nbsp;<a href="mailto:blumoondriving@gmail.com">blumoondriving@gmail.com</a></li>
-                    <li className="icon brands fa-facebook-f white-font">&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/profile.php?id=61571385867371">Facebook Page</a></li>
+                    <li className="icon brands fa-facebook-f white-font">&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/profile.php?id=61571385867371">Blu-Moon Facebook</a></li>
                 </ul>
         </p>
     )

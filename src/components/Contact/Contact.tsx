@@ -80,7 +80,7 @@ function Contact() {
 						</a>
 						<li className="icon solid fa-phone"><a href="tel://14432760761/">(443) 276-0761</a></li>
 						<li className="icon solid fa-envelope"><a href="mailto:blumoondriving@gmail.com">blumoondriving@gmail.com</a></li>
-						<li className="icon brands fa-facebook-f"><a href="https://www.facebook.com/profile.php?id=61571385867371">Facebook Page</a></li>
+						<li className="icon brands fa-facebook-f"><a href="https://www.facebook.com/profile.php?id=61571385867371">Blu-Moon Facebook</a></li>
 					</ul>
 				</div>
 			</section>

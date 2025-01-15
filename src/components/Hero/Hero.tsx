@@ -5,7 +5,7 @@ export default function Hero() {
     return (
         <div className="hero">
             <div className="hero-text">
-                <h1>Call For Driving Class Today!</h1>
+                <h1>Your Journey to Safe Driving Starts Now!</h1>
                 <p className="whitest-font">
                     <a href="tel://14432516427/"><span className="icon solid fa-building button small"> Office: (443) 276-0761</span> </a>
                     &nbsp;&nbsp; 

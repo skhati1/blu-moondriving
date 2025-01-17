@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { QuizItem } from './quizFunctions';
+import Content from '../layout/Content/Content';
+import './stepper.css'
 
 interface StepperProps {
     questions: QuizItem[];
 }
 
 const Stepper: React.FC<StepperProps> = ({ questions }) => {
-    const [audit, setAudit] = useState([])
+    const [submitButtonText, setSubmitButtonText] = useState('Submit')
+    const [isSubmitEnabled, setIsSubmitEnabled] = useState(true)
+    const [isSaveEnabled, setIsSaveEnabled] = useState(false)
     
     const [currentStep, setCurrentStep] = useState<number>(0);
     const [formData, setFormData] = useState<{ firstName: string; lastName: string; email: string }>({
@@ -24,6 +28,7 @@ const Stepper: React.FC<StepperProps> = ({ questions }) => {
 
     const handleAnswerSelect = (questionIndex: number, answerKey: string): void => {
         setAnswers((prev) => ({ ...prev, [questionIndex]: answerKey }));
+        setIsSaveEnabled(true)
     };
 
     const handleSave = (questionIndex: number): void => {
@@ -34,6 +39,7 @@ const Stepper: React.FC<StepperProps> = ({ questions }) => {
     const handleNext = (): void => {
         if (currentStep <= questions.length) {
             setCurrentStep((prev) => prev + 1);
+            setIsSaveEnabled(false)
         }
     };
 
@@ -43,8 +49,22 @@ const Stepper: React.FC<StepperProps> = ({ questions }) => {
         }, 0);
     };
 
+
+
+    const handleSubmit = () => {
+        let audit = {
+            ...formData,
+            'answerSheet': {...answers},
+            'score': calculateScore() + '/' + questions.length,
+            'finalScore': ((calculateScore() / questions.length) * 100).toFixed(2) + '%'
+        }
+        console.log(audit)
+        setSubmitButtonText('Done!')
+        setIsSubmitEnabled(false)
+    }
+
     return (
-        <div>
+        <Content>
             {currentStep === 0 && (
                 <div>
                     <h2>Basic Information</h2>
@@ -105,10 +125,12 @@ const Stepper: React.FC<StepperProps> = ({ questions }) => {
                             </form>
                         </>
                     ))}
-                    <button onClick={() => handleSave(currentStep - 1)}>Save</button>
-                    <button onClick={handleNext} disabled={validatedAnswers[currentStep - 1] === undefined}>
-                        {currentStep >= questions.length ? `Finish` : `Next`}
-                    </button>
+                    <div className="flexButtons">
+                        <button onClick={() => handleSave(currentStep - 1)} disabled={!isSaveEnabled}>Save</button>
+                        <button onClick={handleNext} disabled={validatedAnswers[currentStep - 1] === undefined}>
+                            {currentStep >= questions.length ? `Finish` : `Next`}
+                        </button>
+                    </div>
                 </div>
             )}
 
@@ -117,9 +139,10 @@ const Stepper: React.FC<StepperProps> = ({ questions }) => {
                     <h2>Your Score</h2>
                     <h3>{calculateScore()} out of {questions.length}</h3>
                     <h2> {((calculateScore() / questions.length) * 100).toFixed(2)} %</h2>
+                    <button onClick={handleSubmit} disabled={!isSubmitEnabled}>{submitButtonText}</button>
                 </div>
             )}
-        </div>
+        </Content>
     );
 };
 

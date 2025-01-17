@@ -2,12 +2,26 @@ import React, { useState } from 'react';
 import { QuizItem } from './quizFunctions';
 import Content from '../layout/Content/Content';
 import './stepper.css'
+import sendEmail from './emailSender';
+
+export interface AuditEmail {
+    answerSheet: {
+        [x: number]: string;
+    };
+    score: string;
+    finalScore: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    quizName: string
+}
 
 interface StepperProps {
     questions: QuizItem[];
+    quizName: string;
 }
 
-const Stepper: React.FC<StepperProps> = ({ questions }) => {
+const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
 
     const [submitButtonText, setSubmitButtonText] = useState('Submit')
     const [isSubmitEnabled, setIsSubmitEnabled] = useState(true)
@@ -59,15 +73,24 @@ const Stepper: React.FC<StepperProps> = ({ questions }) => {
 
 
     const handleSubmitQuiz = () => {
-        let audit = {
+        let audit: AuditEmail = {
             ...formData,
             'answerSheet': { ...answers },
             'score': calculateScore() + '/' + questions.length,
-            'finalScore': ((calculateScore() / questions.length) * 100).toFixed(2) + '%'
+            'finalScore': ((calculateScore() / questions.length) * 100).toFixed(2) + '%',
+            'quizName': quizName
         }
-        console.log(audit)
-        setSubmitButtonText('Done!')
-        setIsSubmitEnabled(false)
+        
+        let response = sendEmail(audit)
+        if (!response)
+        {
+            alert('Failed to submit! Please try to submit again!')
+            setSubmitButtonText('Retry')
+            setIsSaveEnabled(true)
+        } else {
+            setSubmitButtonText('Done!')
+            setIsSubmitEnabled(true)//TODO change this to false
+        }
     }
     const isEmailValid = (val: string): boolean => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -133,7 +156,7 @@ const Stepper: React.FC<StepperProps> = ({ questions }) => {
                             name="email"
                             placeholder="Email"
                             value={formData.email}
-                            onChange={handleInputChange}s
+                            onChange={handleInputChange}
                         />
                         <span className={emailHasError ? 'visible small-font' : 'hidden'}>Invalid email address!</span>
                     </div>
@@ -146,9 +169,8 @@ const Stepper: React.FC<StepperProps> = ({ questions }) => {
                     <h2>Question {currentStep}: </h2>
                     <h4 className="center">{questions[currentStep - 1].question}</h4>
                     {questions[currentStep - 1].answers.map((answer) => (
-                        <>
-                            <form style={{ margin: '0 0 0 0' }}>
-                                <div key={answer.key}>
+                            <form style={{ margin: '0 0 0 0' }} key={answer.key}>
+                                <div>
                                     <input type="radio"
                                         id={answer.key}
                                         name={`question-${currentStep - 1}`}
@@ -179,7 +201,6 @@ const Stepper: React.FC<StepperProps> = ({ questions }) => {
                                     >{answer.item}</label>
                                 </div>
                             </form>
-                        </>
                     ))}
                     <div className="flexButtons">
                         <button onClick={() => handleSave(currentStep - 1)} disabled={!isSaveEnabled}>Save</button>

@@ -1,9 +1,9 @@
-import { ReactElement, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import AnimatedPage from "../components/AnimatedPage";
 import Content from "../components/layout/Content/Content";
 import { useLocation } from 'react-router'
 import getQuiz from "../components/Quiz/quizFunctions";
-import MultiStepForm from "../components/Quiz/MultiStepForm";
+import Stepper from "../components/Quiz/Stepper";
 
 export default function Quiz() {
 
@@ -25,7 +25,7 @@ export default function Quiz() {
                 setContent(() => {
                     return (
                         <>
-                            <MultiStepForm quiz={definition.quiz} />
+                            <Stepper questions={definition.quiz} quizName={definition.name} />
                         </>
                     )
                 })

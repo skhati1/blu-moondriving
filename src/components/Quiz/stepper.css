@@ -4,8 +4,19 @@
     gap: 10px;
 }
 
-.basicForm{
-    input {
-        margin-bottom: 15px;
-    }
+.labelWithError{
+    margin-bottom: 15px;
+}
+
+.small-font {
+    font-size: small;
+    color: lightpink;
+}
+
+.visible {
+    display: block;
+}
+
+.hidden {
+    display: none;
 }

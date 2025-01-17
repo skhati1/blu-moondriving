@@ -8,10 +8,16 @@ interface StepperProps {
 }
 
 const Stepper: React.FC<StepperProps> = ({ questions }) => {
+
     const [submitButtonText, setSubmitButtonText] = useState('Submit')
     const [isSubmitEnabled, setIsSubmitEnabled] = useState(true)
     const [isSaveEnabled, setIsSaveEnabled] = useState(false)
-    
+
+    const [firstNameHasError, setFirstNameHasError] = useState(false)
+    const [lastNameHasError, setLastNameHasError] = useState(false)
+    const [emailHasError, setEmailHasError] = useState(false)
+
+
     const [currentStep, setCurrentStep] = useState<number>(0);
     const [formData, setFormData] = useState<{ firstName: string; lastName: string; email: string }>({
         firstName: '',
@@ -52,10 +58,10 @@ const Stepper: React.FC<StepperProps> = ({ questions }) => {
 
 
 
-    const handleSubmit = () => {
+    const handleSubmitQuiz = () => {
         let audit = {
             ...formData,
-            'answerSheet': {...answers},
+            'answerSheet': { ...answers },
             'score': calculateScore() + '/' + questions.length,
             'finalScore': ((calculateScore() / questions.length) * 100).toFixed(2) + '%'
         }
@@ -63,34 +69,75 @@ const Stepper: React.FC<StepperProps> = ({ questions }) => {
         setSubmitButtonText('Done!')
         setIsSubmitEnabled(false)
     }
+    const isEmailValid = (val: string): boolean => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(val);
+    }
+
+    const handleBasicInfo = () => {
+        setFirstNameHasError(false)
+        setLastNameHasError(false)
+        setEmailHasError(false)
+        let hasError = false
+
+        //Validate form, show errors, only when good go next
+        if (!formData.firstName || formData.firstName.trim().length < 1) {
+            setFirstNameHasError(true)
+            hasError = true
+        }
+        if (!formData.lastName || formData.lastName.trim().length < 1) {
+            setLastNameHasError(true)
+            hasError = true
+        }
+        if (!formData.email || formData.email.trim().length < 1) {
+            setEmailHasError(true)
+            hasError = true
+        }
+        if (!isEmailValid(formData.email)) {
+            setEmailHasError(true)
+            hasError = true
+        }
+        if (!hasError) {
+            handleNext()
+        }
+    }
 
     return (
         <Content>
             {currentStep === 0 && (
                 <div className="basicForm">
                     <h2>Basic Information</h2>
-                    <input
-                        type="text"
-                        name="firstName"
-                        placeholder="First Name"
-                        value={formData.firstName}
-                        onChange={handleInputChange}
-                    />
-                    <input
-                        type="text"
-                        name="lastName"
-                        placeholder="Last Name"
-                        value={formData.lastName}
-                        onChange={handleInputChange}
-                    />
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                    />
-                    <button onClick={handleNext}>Next</button>
+                    <div className="labelWithError">
+                        <input
+                            type="text"
+                            name="firstName"
+                            placeholder="First Name"
+                            value={formData.firstName}
+                            onChange={handleInputChange}
+                        />
+                        <span className={firstNameHasError ? 'visible small-font' : 'hidden'}>Invalid first name!</span>
+                    </div>
+                    <div className="labelWithError">
+                        <input
+                            type="text"
+                            name="lastName"
+                            placeholder="Last Name"
+                            value={formData.lastName}
+                            onChange={handleInputChange}
+                        />
+                        <span className={lastNameHasError ? 'visible small-font' : 'hidden'}>Invalid last name!</span>
+                    </div>
+                    <div className="labelWithError">
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                            value={formData.email}
+                            onChange={handleInputChange}s
+                        />
+                        <span className={emailHasError ? 'visible small-font' : 'hidden'}>Invalid email address!</span>
+                    </div>
+                    <button type="button" onClick={handleBasicInfo}>Next</button>
                 </div>
             )}
 
@@ -100,7 +147,7 @@ const Stepper: React.FC<StepperProps> = ({ questions }) => {
                     <h4 className="center">{questions[currentStep - 1].question}</h4>
                     {questions[currentStep - 1].answers.map((answer) => (
                         <>
-                            <form style={{ margin: '0 0 0 0'}}>
+                            <form style={{ margin: '0 0 0 0' }}>
                                 <div key={answer.key}>
                                     <input type="radio"
                                         id={answer.key}
@@ -109,19 +156,27 @@ const Stepper: React.FC<StepperProps> = ({ questions }) => {
                                         checked={answers[currentStep - 1] === answer.key}
                                         onChange={() => handleAnswerSelect(currentStep - 1, answer.key)}
                                         disabled={validatedAnswers[currentStep - 1] !== undefined} />
-                                        <label 
-                                            htmlFor={answer.key}
-                                            style={{
-                                                color:
-                                                    validatedAnswers[currentStep - 1] === undefined
-                                                        ? 'white'
-                                                        : answer.key === questions[currentStep - 1].correctAnswer
-                                                            ? 'lightgreen'
-                                                            : answers[currentStep - 1] === answer.key
-                                                                ? 'lightcoral'
-                                                                : 'white',
-                                            }}
-                                        >{answer.item}</label>
+                                    <label
+                                        htmlFor={answer.key}
+                                        style={{
+                                            color:
+                                                validatedAnswers[currentStep - 1] === undefined
+                                                    ? 'white'
+                                                    : answer.key === questions[currentStep - 1].correctAnswer
+                                                        ? 'black'
+                                                        : answers[currentStep - 1] === answer.key
+                                                            ? 'black'
+                                                            : 'white',
+                                            backgroundColor:
+                                                validatedAnswers[currentStep - 1] === undefined
+                                                    ? 'transparent'
+                                                    : answer.key === questions[currentStep - 1].correctAnswer
+                                                        ? 'lightgreen'
+                                                        : answers[currentStep - 1] === answer.key
+                                                            ? 'lightcoral'
+                                                            : 'transparent',
+                                        }}
+                                    >{answer.item}</label>
                                 </div>
                             </form>
                         </>
@@ -140,7 +195,7 @@ const Stepper: React.FC<StepperProps> = ({ questions }) => {
                     <h2>Your Score</h2>
                     <h3>{calculateScore()} out of {questions.length}</h3>
                     <h2> {((calculateScore() / questions.length) * 100).toFixed(2)} %</h2>
-                    <button onClick={handleSubmit} disabled={!isSubmitEnabled}>{submitButtonText}</button>
+                    <button onClick={handleSubmitQuiz} disabled={!isSubmitEnabled}>{submitButtonText}</button>
                 </div>
             )}
         </Content>

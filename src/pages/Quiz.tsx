@@ -5,7 +5,7 @@ import { useLocation } from 'react-router'
 import getQuiz from "../components/Quiz/quizFunctions";
 import MultiStepForm from "../components/Quiz/MultiStepForm";
 
-export default function Quiz(){
+export default function Quiz() {
 
     let location = useLocation()
     const queryParameters = new URLSearchParams(location.search)
@@ -16,16 +16,21 @@ export default function Quiz(){
     const [content, setContent] = useState(<p>Loading Quiz ...</p>);
 
     useEffect(() => {
-        if (quizId){
+        if (quizId) {
             let res = getQuiz(quizId)
-            if (res != null && res.length != 0){
+            if (res != null && res.length != 0) {
                 let definition = res[0]
                 setQuiz(definition.quiz)
                 setQuizName(definition.name)
-                setContent(<MultiStepForm quiz={definition.quiz} />)
-            } 
-            else 
-            {
+                setContent(() => {
+                    return (
+                        <>
+                            <MultiStepForm quiz={definition.quiz} />
+                        </>
+                    )
+                })
+            }
+            else {
                 setContent(<span>Invalid quiz! Please check the URL!</span>)
             }
         } else {
@@ -33,7 +38,7 @@ export default function Quiz(){
         }
     }, [])
 
-    return(
+    return (
         <AnimatedPage>
             <Content>
                 <h1 className="major">Student Quiz{quizName && ': ' + quizName}</h1>

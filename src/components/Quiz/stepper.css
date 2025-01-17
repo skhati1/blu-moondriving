@@ -3,3 +3,9 @@
     justify-content: center;
     gap: 10px;
 }
+
+.basicForm{
+    input {
+        margin-bottom: 15px;
+    }
+}

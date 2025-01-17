@@ -34,6 +34,7 @@ const Stepper: React.FC<StepperProps> = ({ questions }) => {
     const handleSave = (questionIndex: number): void => {
         const isCorrect = answers[questionIndex] === questions[questionIndex].correctAnswer;
         setValidatedAnswers((prev) => ({ ...prev, [questionIndex]: isCorrect }));
+        setIsSaveEnabled(false)
     };
 
     const handleNext = (): void => {
@@ -66,7 +67,7 @@ const Stepper: React.FC<StepperProps> = ({ questions }) => {
     return (
         <Content>
             {currentStep === 0 && (
-                <div>
+                <div className="basicForm">
                     <h2>Basic Information</h2>
                     <input
                         type="text"

@@ -1,38 +1,48 @@
-import { Resend } from 'resend'
-import { AuditEmail } from './Stepper';
+import { AuditEmail } from './types';
 
 export default async function sendEmail(audit: AuditEmail) {
-    const resend = new Resend(import.meta.env.VITE_RESEND_KEY);
 
     const report = buildHtmlAuditEmail(audit)
 
     const today = new Date().toISOString().split('T')[0];
     const subject = '"' + audit.quizName + '" Quiz Result: ' + audit.firstName + ' ' + audit.lastName + " " + today
 
+    console.log(report)
+    return
     const payload = {
         from: import.meta.env.VITE_QUIZ_EMAIL_SENDER,
-        to: import.meta.env.VITE_QUIZ_EMAIL_RECIPIENT + ";" + audit.email,
+        to: import.meta.env.VITE_QUIZ_EMAIL_RECIPIENT,
         subject: subject,
         html: report,
     }
 
-    let result = await resend.emails.send(payload);
-    if (!result.error) {
+    const result = await fetch('https://morning-silence-eaba.khatiwada-saurabh.workers.dev/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+    if (result.status == 200) {
         return true;
     } else {
-        console.log('Error sending email report: ' + result.error.message)
+        console.log('Error sending email report. Status ' + result.status, result)
         return false;
     }
 }
 
 
 const buildHtmlAuditEmail = (audit: AuditEmail): string => {
-    const tableRows = Object.entries(audit.answerSheet)
-        .map(
-            ([questionNumber, answer]) => `
+    console.log(audit.answerSheet)
+    const tableRows = audit.answerSheet.map(({ question, studentAnswer, correctAnswer, isCorrect, correctAnswerText, studentAnswerText}) => `
     <tr>
-      <td>${questionNumber}</td>
-      <td>${answer}</td>
+      <td class="center">${isCorrect === true ? '✅' : '❌'}</td>
+      <td>${question}</td>
+      <td>${studentAnswer}</td>
+      <td>${studentAnswerText}</td>
+      <td>${correctAnswer}</td>
+      <td>${correctAnswerText}</td>
     </tr>`
         )
         .join('');
@@ -70,6 +80,9 @@ const buildHtmlAuditEmail = (audit: AuditEmail): string => {
         padding: 8px;
         text-align: left;
       }
+      .center {
+        text-align: center;
+      }
       th {
         background-color: #f4f4f4;
       }
@@ -80,26 +93,28 @@ const buildHtmlAuditEmail = (audit: AuditEmail): string => {
   </head>
   <body>
     <div class="container">
-      <h1>${audit.quizName} - Audit Report</h1>
+      <h1>${audit.quizName} - Result</h1>
       <p><strong>First Name:</strong> ${audit.firstName}</p>
       <p><strong>Last Name:</strong> ${audit.lastName}</p>
-      <p><strong>Email:</strong> ${audit.email}</p>
-      <div class="score">
-        <p><strong>Score:</strong> ${audit.score}</p>
-        <p><strong>Final Score:</strong> ${audit.finalScore}</p>
-      </div>
-      <h2>Answer Sheet</h2>
+      
       <table>
         <thead>
           <tr>
+            <th>Result</th>
             <th>Question</th>
-            <th>Answer</th>
+            <th>Student Answer</th>
+            <th>Student Answer Text</th>
+            <th>Correct Answer</th>
+            <th>Correct Text</th>
           </tr>
         </thead>
         <tbody>
           ${tableRows}
         </tbody>
       </table>
+      <div class="score">
+        <p class="center"><strong>Score:</strong> ${audit.score} &nbsp; <strong>Final Score:</strong> ${audit.finalScore}</p>
+      </div>
     </div>
   </body>
   </html>

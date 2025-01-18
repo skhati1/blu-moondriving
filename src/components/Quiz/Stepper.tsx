@@ -1,44 +1,37 @@
 import React, { useState } from 'react';
-import { QuizItem } from './quizFunctions';
 import Content from '../layout/Content/Content';
 import './stepper.css'
 import sendEmail from './emailSender';
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import { AnswerSheet, AuditEmail, StepperProps } from './types';
 
-export interface AuditEmail {
-    answerSheet: {
-        [x: number]: string;
-    };
-    score: string;
-    finalScore: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    quizName: string
+
+interface StudentResponse {
+    questionIndex: number,
+    answerKey: string
 }
 
-interface StepperProps {
-    questions: QuizItem[];
-    quizName: string;
-}
+//https://onlinehashtools.com/generate-random-md5-hash
 
 const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
+    const auditAnswerSheet: AnswerSheet[] = []
 
     const [submitButtonText, setSubmitButtonText] = useState('Submit')
     const [isSubmitEnabled, setIsSubmitEnabled] = useState(true)
+
     const [isSaveEnabled, setIsSaveEnabled] = useState(false)
 
     const [firstNameHasError, setFirstNameHasError] = useState(false)
     const [lastNameHasError, setLastNameHasError] = useState(false)
-    const [emailHasError, setEmailHasError] = useState(false)
-
 
     const [currentStep, setCurrentStep] = useState<number>(0);
-    const [formData, setFormData] = useState<{ firstName: string; lastName: string; email: string }>({
+    const [formData, setFormData] = useState<{ firstName: string; lastName: string; }>({
         firstName: '',
-        lastName: '',
-        email: '',
+        lastName: ''
     });
-    const [answers, setAnswers] = useState<Record<number, string>>({});
+
+    let initialAnswers: AnswerSheet[] = []
+    const [answers, setAnswers] = useState(initialAnswers);
     const [validatedAnswers, setValidatedAnswers] = useState<Record<number, boolean>>({});
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -46,14 +39,33 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
+    const [studentSelectedAnswer, setStudentSelectedAnswer] = useState({} as StudentResponse)
+
     const handleAnswerSelect = (questionIndex: number, answerKey: string): void => {
-        setAnswers((prev) => ({ ...prev, [questionIndex]: answerKey }));
+        let objItem: StudentResponse = {
+            questionIndex: questionIndex,
+            answerKey: answerKey
+        }
+        setStudentSelectedAnswer(objItem)
         setIsSaveEnabled(true)
     };
 
     const handleSave = (questionIndex: number): void => {
-        const isCorrect = answers[questionIndex] === questions[questionIndex].correctAnswer;
-        setValidatedAnswers((prev) => ({ ...prev, [questionIndex]: isCorrect }));
+        const currentSet = questions[questionIndex]
+        const correctAnswerResponse = currentSet.answers.filter(set => set.key === currentSet.correctAnswer)[0].item
+        const studentAnswerResponse = currentSet.answers.filter(set => set.key === studentSelectedAnswer.answerKey)[0].item
+
+        let res: AnswerSheet = {
+            question: questions[questionIndex].question,
+            correctAnswer: questions[questionIndex].correctAnswer,
+            correctAnswerText: correctAnswerResponse,
+            studentAnswer: studentSelectedAnswer.answerKey,
+            studentAnswerText: studentAnswerResponse,
+            isCorrect: questions[questionIndex].correctAnswer === studentSelectedAnswer.answerKey
+        }
+        auditAnswerSheet.push(res)
+        setAnswers([...answers, res])
+        setValidatedAnswers((prev) => ({ ...prev, [questionIndex]: res.isCorrect }));
         setIsSaveEnabled(false)
     };
 
@@ -66,41 +78,32 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
 
     const calculateScore = (): number => {
         return questions.reduce((score, question, index) => {
-            return question.correctAnswer === answers[index] ? score + 1 : score;
+            return question.correctAnswer === answers[index].studentAnswer ? score + 1 : score;
         }, 0);
     };
-
-
 
     const handleSubmitQuiz = () => {
         let audit: AuditEmail = {
             ...formData,
-            'answerSheet': { ...answers },
-            'score': calculateScore() + '/' + questions.length,
+            'answerSheet': answers,
+            'score': calculateScore() + ' out of ' + questions.length,
             'finalScore': ((calculateScore() / questions.length) * 100).toFixed(2) + '%',
             'quizName': quizName
         }
-        
         let response = sendEmail(audit)
-        if (!response)
-        {
+        if (!response) {
             alert('Failed to submit! Please try to submit again!')
             setSubmitButtonText('Retry')
             setIsSaveEnabled(true)
         } else {
             setSubmitButtonText('Done!')
-            setIsSubmitEnabled(true)//TODO change this to false
+            setIsSubmitEnabled(false)
         }
-    }
-    const isEmailValid = (val: string): boolean => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(val);
     }
 
     const handleBasicInfo = () => {
         setFirstNameHasError(false)
         setLastNameHasError(false)
-        setEmailHasError(false)
         let hasError = false
 
         //Validate form, show errors, only when good go next
@@ -110,14 +113,6 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
         }
         if (!formData.lastName || formData.lastName.trim().length < 1) {
             setLastNameHasError(true)
-            hasError = true
-        }
-        if (!formData.email || formData.email.trim().length < 1) {
-            setEmailHasError(true)
-            hasError = true
-        }
-        if (!isEmailValid(formData.email)) {
-            setEmailHasError(true)
             hasError = true
         }
         if (!hasError) {
@@ -150,57 +145,48 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
                         />
                         <span className={lastNameHasError ? 'visible small-font' : 'hidden'}>Invalid last name!</span>
                     </div>
-                    <div className="labelWithError">
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Email"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                        />
-                        <span className={emailHasError ? 'visible small-font' : 'hidden'}>Invalid email address!</span>
-                    </div>
-                    <button type="button" onClick={handleBasicInfo}>Next</button>
+                    <button type="button" onClick={handleBasicInfo}>Register</button>
                 </div>
             )}
 
             {currentStep > 0 && currentStep <= questions.length && (
                 <div>
+                    <span>Choose the best answer:</span>
                     <h2>Question {currentStep}: </h2>
                     <h4 className="center">{questions[currentStep - 1].question}</h4>
                     {questions[currentStep - 1].answers.map((answer) => (
-                            <form style={{ margin: '0 0 0 0' }} key={answer.key}>
+                        <div key={answer.key}>
+                            <form style={{ margin: '0 0 0 0' }}>
                                 <div>
                                     <input type="radio"
                                         id={answer.key}
                                         name={`question-${currentStep - 1}`}
                                         value={answer.key}
-                                        checked={answers[currentStep - 1] === answer.key}
+                                        checked={answers[currentStep - 1]?.studentAnswer === answer.key}
                                         onChange={() => handleAnswerSelect(currentStep - 1, answer.key)}
                                         disabled={validatedAnswers[currentStep - 1] !== undefined} />
-                                    <label
-                                        htmlFor={answer.key}
-                                        style={{
-                                            color:
-                                                validatedAnswers[currentStep - 1] === undefined
-                                                    ? 'white'
-                                                    : answer.key === questions[currentStep - 1].correctAnswer
-                                                        ? 'black'
-                                                        : answers[currentStep - 1] === answer.key
-                                                            ? 'black'
-                                                            : 'white',
-                                            backgroundColor:
-                                                validatedAnswers[currentStep - 1] === undefined
-                                                    ? 'transparent'
-                                                    : answer.key === questions[currentStep - 1].correctAnswer
-                                                        ? 'lightgreen'
-                                                        : answers[currentStep - 1] === answer.key
-                                                            ? 'lightcoral'
-                                                            : 'transparent',
-                                        }}
-                                    >{answer.item}</label>
+                                    <label htmlFor={answer.key}>
+                                        <span style={{
+                                        color:
+                                            validatedAnswers[currentStep - 1] === undefined
+                                                ? 'white'
+                                                : answer.key === questions[currentStep - 1].correctAnswer
+                                                    ? 'black'
+                                                    : answers[currentStep - 1].studentAnswer === answer.key
+                                                        ? 'white'
+                                                        : 'white',
+                                        backgroundColor:
+                                            validatedAnswers[currentStep - 1] === undefined
+                                                ? 'transparent'
+                                                : answer.key === questions[currentStep - 1].correctAnswer
+                                                    ? 'lightgreen'
+                                                    : answers[currentStep - 1].studentAnswer === answer.key
+                                                        ? 'lightcoral'
+                                                        : 'transparent',
+                                    }}>{answer.item}</span></label>
                                 </div>
                             </form>
+                        </div>
                     ))}
                     <div className="flexButtons">
                         <button onClick={() => handleSave(currentStep - 1)} disabled={!isSaveEnabled}>Save</button>

@@ -10,8 +10,8 @@ export default function Quiz() {
     let location = useLocation()
     const queryParameters = new URLSearchParams(location.search)
 
-    let [quizId, setQuizId] = useState(queryParameters.get("id"))
-    let [quiz, setQuiz] = useState({})
+    let quizId = queryParameters.get("id")
+
     let [quizName, setQuizName] = useState('')
     const [content, setContent] = useState(<p>Loading Quiz ...</p>);
 
@@ -20,7 +20,6 @@ export default function Quiz() {
             let res = getQuiz(quizId)
             if (res != null && res.length != 0) {
                 let definition = res[0]
-                setQuiz(definition.quiz)
                 setQuizName(definition.name)
                 setContent(() => {
                     return (

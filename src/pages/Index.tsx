@@ -1,7 +1,7 @@
 import Content from "../components/layout/Content/Content";
 //import Contact from "../components/Contact/Contact";
 import Hero from "../components/Hero/Hero";
-import Features, { FeaturesPropItem } from "../components/Features/Features";
+import Features from "../components/Features/Features";
 import AnimatedPage from "../components/AnimatedPage";
 import ImageOne from "../assets/home/07.jpg";
 import ImageTwo from "../assets/home/02.jpg";

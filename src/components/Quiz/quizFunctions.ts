@@ -1,21 +1,5 @@
 import allQuestions from './allQuestions.json'
-
-export interface QuizDefinition {
-    name: string,
-    key: string,
-    quiz: QuizItem[]
-}
-
-export interface QuizItem {
-    question: string,
-    answers: QuizAnswer[],
-    correctAnswer: string
-}
-
-export interface QuizAnswer {
-    key: string,
-    item: string
-}
+import { QuizDefinition } from './types';
 
 export default function getQuiz(id: string){
     const fetchedQuiz: QuizDefinition[] = allQuestions

@@ -5,10 +5,10 @@ export default async function sendEmail(audit: AuditEmail) {
     const report = buildHtmlAuditEmail(audit)
 
     const today = new Date().toISOString().split('T')[0];
-    const subject = '"' + audit.quizName + '" Quiz Result: ' + audit.firstName + ' ' + audit.lastName + " " + today
+    const subject = '"' + audit.quizName + '" Quiz Submission for ' + audit.firstName + ' ' + audit.lastName + " " + today
 
     const payload = {
-        from: import.meta.env.VITE_QUIZ_EMAIL_SENDER,
+        from: audit.lastName + ', ' + audit.firstName + ' <' + import.meta.env.VITE_QUIZ_EMAIL_SENDER + '>',
         to: import.meta.env.VITE_QUIZ_EMAIL_RECIPIENT,
         subject: subject,
         html: report,

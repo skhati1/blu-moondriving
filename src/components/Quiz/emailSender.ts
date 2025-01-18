@@ -22,8 +22,6 @@ export default async function sendEmail(audit: AuditEmail) {
         body: JSON.stringify(payload),
       });
 
-    console.log('making reuest', request)
-
     if (result.status == 200) {
         return true;
     } else {

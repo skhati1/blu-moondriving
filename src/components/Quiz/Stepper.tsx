@@ -188,7 +188,7 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
                                                     : answers[currentStep - 1].studentAnswer === answer.key
                                                         ? 'lightcoral'
                                                         : 'transparent',
-                                    }}>{answer.item}</span></label>
+                                    }}><b>{answer.item}</b></span></label>
                                 </div>
                             </form>
                         </div>

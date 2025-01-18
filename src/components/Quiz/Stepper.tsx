@@ -176,7 +176,7 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
                                             validatedAnswers[currentStep - 1] === undefined
                                                 ? 'white'
                                                 : answer.key === questions[currentStep - 1].correctAnswer
-                                                    ? 'black'
+                                                    ? 'white'
                                                     : answers[currentStep - 1].studentAnswer === answer.key
                                                         ? 'white'
                                                         : 'white',
@@ -184,11 +184,11 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
                                             validatedAnswers[currentStep - 1] === undefined
                                                 ? 'transparent'
                                                 : answer.key === questions[currentStep - 1].correctAnswer
-                                                    ? 'lightgreen'
+                                                    ? ' #1d8348 '
                                                     : answers[currentStep - 1].studentAnswer === answer.key
-                                                        ? 'lightcoral'
+                                                        ? '#CD5C5C'
                                                         : 'transparent',
-                                    }}><b>{answer.item}</b></span></label>
+                                    }}>&nbsp;{answer.item}&nbsp;</span></label>
                                 </div>
                             </form>
                         </div>

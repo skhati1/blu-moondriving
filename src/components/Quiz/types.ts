@@ -27,12 +27,14 @@ export interface QuizDefinition {
     name: string,
     key: string,
     quiz: QuizItem[]
+    questionsAtOnce: number;
 }
 
 export interface QuizItem {
     question: string,
     answers: QuizAnswer[],
     correctAnswer: string
+    image: string | null;
 }
 
 export interface QuizAnswer {

@@ -1,8 +1,9 @@
-import allQuestions from './allQuestions.json'
+import allQuestions from './allQuestions'
 import { QuizDefinition } from './types';
 
 export default function getQuiz(id: string){
-    const fetchedQuiz: QuizDefinition[] = allQuestions
+    const questions = allQuestions()
+    const fetchedQuiz: QuizDefinition[] = questions
             .filter((item) => item.key === id)
             .map((item) => item);
 

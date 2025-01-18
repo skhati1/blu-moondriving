@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Content from '../layout/Content/Content';
 import './stepper.css'
 import sendEmail from './emailSender';
-import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { AnswerSheet, AuditEmail, StepperProps } from './types';
 
 
@@ -15,7 +14,6 @@ interface StudentResponse {
 
 const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
     const auditAnswerSheet: AnswerSheet[] = []
-
     const [submitButtonText, setSubmitButtonText] = useState('Submit')
     const [isSubmitEnabled, setIsSubmitEnabled] = useState(true)
 
@@ -51,7 +49,7 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
     };
 
     const handleSave = (questionIndex: number): void => {
-        if (studentSelectedAnswer === null){
+        if (studentSelectedAnswer === null) {
             console.log('this shouldn\'t happen')
             return
         }
@@ -88,21 +86,25 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
     };
 
     const handleSubmitQuiz = () => {
-        let audit: AuditEmail = {
-            ...formData,
-            'answerSheet': answers,
-            'score': calculateScore() + ' out of ' + questions.length,
-            'finalScore': ((calculateScore() / questions.length) * 100).toFixed(2) + '%',
-            'quizName': quizName
-        }
-        let response = sendEmail(audit)
-        if (!response) {
-            alert('Failed to submit! Please try to submit again!')
-            setSubmitButtonText('Retry')
-            setIsSaveEnabled(true)
+        if (window.confirm("Are you sure you wish to submit?")){
+            let audit: AuditEmail = {
+                ...formData,
+                'answerSheet': answers,
+                'score': calculateScore() + ' out of ' + questions.length,
+                'finalScore': ((calculateScore() / questions.length) * 100).toFixed(2) + '%',
+                'quizName': quizName
+            }
+            let response = sendEmail(audit)
+            if (!response) {
+                alert('Failed to submit! Please try to submit again!')
+                setSubmitButtonText('Retry')
+                setIsSaveEnabled(true)
+            } else {
+                setSubmitButtonText('Done!')
+                setIsSubmitEnabled(false)
+            }
         } else {
-            setSubmitButtonText('Done!')
-            setIsSubmitEnabled(false)
+            console.log("user cancelled submission")
         }
     }
 
@@ -124,6 +126,7 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
             handleNext()
         }
     }
+
 
     return (
         <Content>
@@ -172,23 +175,23 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
                                         disabled={validatedAnswers[currentStep - 1] !== undefined} />
                                     <label htmlFor={answer.key}>
                                         <span style={{
-                                        color:
-                                            validatedAnswers[currentStep - 1] === undefined
-                                                ? 'white'
-                                                : answer.key === questions[currentStep - 1].correctAnswer
+                                            color:
+                                                validatedAnswers[currentStep - 1] === undefined
                                                     ? 'white'
-                                                    : answers[currentStep - 1].studentAnswer === answer.key
+                                                    : answer.key === questions[currentStep - 1].correctAnswer
                                                         ? 'white'
-                                                        : 'white',
-                                        backgroundColor:
-                                            validatedAnswers[currentStep - 1] === undefined
-                                                ? 'transparent'
-                                                : answer.key === questions[currentStep - 1].correctAnswer
-                                                    ? ' #1d8348 '
-                                                    : answers[currentStep - 1].studentAnswer === answer.key
-                                                        ? '#CD5C5C'
-                                                        : 'transparent',
-                                    }}>&nbsp;{answer.item}&nbsp;</span></label>
+                                                        : answers[currentStep - 1].studentAnswer === answer.key
+                                                            ? 'white'
+                                                            : 'white',
+                                            backgroundColor:
+                                                validatedAnswers[currentStep - 1] === undefined
+                                                    ? 'transparent'
+                                                    : answer.key === questions[currentStep - 1].correctAnswer
+                                                        ? ' #1d8348 '
+                                                        : answers[currentStep - 1].studentAnswer === answer.key
+                                                            ? '#CD5C5C'
+                                                            : 'transparent',
+                                        }}>&nbsp;{answer.item}&nbsp;</span></label>
                                 </div>
                             </form>
                         </div>

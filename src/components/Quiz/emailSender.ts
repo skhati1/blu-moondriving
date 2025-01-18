@@ -7,8 +7,6 @@ export default async function sendEmail(audit: AuditEmail) {
     const today = new Date().toISOString().split('T')[0];
     const subject = '"' + audit.quizName + '" Quiz Result: ' + audit.firstName + ' ' + audit.lastName + " " + today
 
-    console.log(report)
-    return
     const payload = {
         from: import.meta.env.VITE_QUIZ_EMAIL_SENDER,
         to: import.meta.env.VITE_QUIZ_EMAIL_RECIPIENT,
@@ -24,6 +22,8 @@ export default async function sendEmail(audit: AuditEmail) {
         body: JSON.stringify(payload),
       });
 
+    console.log('making reuest', request)
+
     if (result.status == 200) {
         return true;
     } else {
@@ -34,7 +34,6 @@ export default async function sendEmail(audit: AuditEmail) {
 
 
 const buildHtmlAuditEmail = (audit: AuditEmail): string => {
-    console.log(audit.answerSheet)
     const tableRows = audit.answerSheet.map(({ question, studentAnswer, correctAnswer, isCorrect, correctAnswerText, studentAnswerText}) => `
     <tr>
       <td class="center">${isCorrect === true ? '✅' : '❌'}</td>

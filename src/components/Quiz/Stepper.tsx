@@ -39,7 +39,7 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    const [studentSelectedAnswer, setStudentSelectedAnswer] = useState({} as StudentResponse)
+    const [studentSelectedAnswer, setStudentSelectedAnswer] = useState({} as StudentResponse | null)
 
     const handleAnswerSelect = (questionIndex: number, answerKey: string): void => {
         let objItem: StudentResponse = {
@@ -51,6 +51,10 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
     };
 
     const handleSave = (questionIndex: number): void => {
+        if (studentSelectedAnswer === null){
+            console.log('this shouldn\'t happen')
+            return
+        }
         const currentSet = questions[questionIndex]
         const correctAnswerResponse = currentSet.answers.filter(set => set.key === currentSet.correctAnswer)[0].item
         const studentAnswerResponse = currentSet.answers.filter(set => set.key === studentSelectedAnswer.answerKey)[0].item
@@ -72,6 +76,7 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
     const handleNext = (): void => {
         if (currentStep <= questions.length) {
             setCurrentStep((prev) => prev + 1);
+            setStudentSelectedAnswer(null)
             setIsSaveEnabled(false)
         }
     };
@@ -97,7 +102,7 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
             setIsSaveEnabled(true)
         } else {
             setSubmitButtonText('Done!')
-            setIsSubmitEnabled(false)
+            setIsSubmitEnabled(true)//TODO change this to false
         }
     }
 
@@ -162,7 +167,7 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
                                         id={answer.key}
                                         name={`question-${currentStep - 1}`}
                                         value={answer.key}
-                                        checked={answers[currentStep - 1]?.studentAnswer === answer.key}
+                                        checked={studentSelectedAnswer?.answerKey === answer.key}
                                         onChange={() => handleAnswerSelect(currentStep - 1, answer.key)}
                                         disabled={validatedAnswers[currentStep - 1] !== undefined} />
                                     <label htmlFor={answer.key}>

@@ -102,7 +102,7 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
             setIsSaveEnabled(true)
         } else {
             setSubmitButtonText('Done!')
-            setIsSubmitEnabled(true)//TODO change this to false
+            setIsSubmitEnabled(false)
         }
     }
 

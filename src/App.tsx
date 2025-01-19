@@ -10,25 +10,33 @@ import BlackBar from './components/BlackBar/BlackBar'
 import Footer from './components/Footer/Footer'
 import AboutUs from './pages/AboutUs'
 import Quiz from './pages/Quiz'
+import { ReactElement } from 'react'
 
 
 function App() {
-  return (
+  const WrappedComponent = (content: ReactElement) => (
     <>
       <BlackBar />
       <Header />
+      {content}
+      <Footer />
+    </>
+  )
+  return (
+    <>
       <div id="page-wrapper">
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/resources" element={<Resources />} />
-            <Route path="/faq" element={<Faq />} />
-            <Route path="/contact" element={<ContactUs />} />
-            <Route path="/student" element={<Student />} />
-            <Route path="/about" element={<AboutUs />} />
-            <Route path="/quiz" element={<Quiz />} />
-          </Routes>
-        <Footer />
+        <Routes>
+          <Route path="/quiz" element={<Quiz />} />
+
+          <Route path="/" element={WrappedComponent(<Index />)} />
+          <Route path="/services" element={WrappedComponent(<Services />)} />
+          <Route path="/resources" element={WrappedComponent(<Resources />)} />
+          <Route path="/faq" element={WrappedComponent(<Faq />)} />
+          <Route path="/contact" element={WrappedComponent(<ContactUs />)} />
+          <Route path="/student" element={WrappedComponent(<Student />)} />
+          <Route path="/about" element={WrappedComponent(<AboutUs />)} />
+          <Route path="/quiz" element={WrappedComponent(<Quiz />)} />
+        </Routes>
       </div>
     </>
   )

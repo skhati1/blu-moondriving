@@ -2,9 +2,10 @@ import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { useForm } from "react-hook-form";
 import './contact.css'
+import ReCAPTCHA from "react-google-recaptcha";
 
 function Contact() {
-
+	const recaptcha = useRef<ReCAPTCHA>(null)
 	const { register, formState: { errors }, handleSubmit } = useForm();
 
 	const [isEnabled, setIsEnabled] = useState(true)
@@ -13,6 +14,11 @@ function Contact() {
 	const form = useRef(null);
 
 	const sendEmail = () => {
+		//first check recaptcha
+	    if(recaptcha.current != null && !recaptcha.current.getValue()){
+			alert('Please Submit Captcha!')
+			return
+		}
 		setSendText("Sending");
 
 		if (form.current == null) {
@@ -67,6 +73,8 @@ function Contact() {
 								{errors.message?.type === 'required' && <p role="alert" className="validationFail">Message is required</p>}
 							</div>
 						</div>
+						<ReCAPTCHA sitekey={import.meta.env.VITE_SITE_KEY} ref={recaptcha}/>
+						<br />
 						<ul className="actions">
 							<li><input type="submit" value={sendText} disabled={!isEnabled} /></li>
 						</ul>

@@ -283,7 +283,7 @@ export default function AllQuestions() {
         {
             "key": "38bee6ef4e79a92c191579dde26424ce",
             "name": "Unit 10 - Set A",
-            "questionsAtOnce": 1,
+            "questionsAtOnce": 5,
             "quiz": [
                 {
                     "question": "This is sample question one for test quiz. Correct answer is C",
@@ -300,7 +300,7 @@ export default function AllQuestions() {
         {
             "key": "effa1b1e0eba6fdd20a918252fda0556",
             "name": "Unit 10 - Set B",
-            "questionsAtOnce": 1,
+            "questionsAtOnce": 5,
             "quiz": [
                 {
                     "question": "This is sample question one for test quiz. Correct answer is C",
@@ -327,7 +327,7 @@ export default function AllQuestions() {
         {
             "key": "bd00d7cdb5b203a2ff3392116853572e",
             "name": "Unit 10 - Set C",
-            "questionsAtOnce": 1,
+            "questionsAtOnce": 5,
             "quiz": [
                 {
                     "question": "This is sample question one for test quiz. Correct answer is C",

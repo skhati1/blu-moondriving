@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Content from '../layout/Content/Content';
 import './stepper.css'
 import sendEmail from './emailSender';
 import { AnswerSheet, AuditEmail, StepperProps } from './types';
-
+import ReCAPTCHA from "react-google-recaptcha";
 
 interface StudentResponse {
     questionIndex: number,
@@ -13,6 +13,8 @@ interface StudentResponse {
 //https://onlinehashtools.com/generate-random-md5-hash
 
 const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
+
+    const recaptcha = useRef<ReCAPTCHA>(null);
     const auditAnswerSheet: AnswerSheet[] = []
     const [submitButtonText, setSubmitButtonText] = useState('Submit')
     const [isSubmitEnabled, setIsSubmitEnabled] = useState(true)
@@ -21,6 +23,7 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
 
     const [firstNameHasError, setFirstNameHasError] = useState(false)
     const [lastNameHasError, setLastNameHasError] = useState(false)
+    const [captchaHasError, setCaptchaHasError] = useState(false)
 
     const [currentStep, setCurrentStep] = useState<number>(0);
     const [formData, setFormData] = useState<{ firstName: string; lastName: string; }>({
@@ -111,6 +114,7 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
     const handleBasicInfo = () => {
         setFirstNameHasError(false)
         setLastNameHasError(false)
+        setCaptchaHasError(false)
         let hasError = false
 
         //Validate form, show errors, only when good go next
@@ -122,6 +126,10 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
             setLastNameHasError(true)
             hasError = true
         }
+        if(recaptcha.current != null && !recaptcha.current.getValue()){
+			setCaptchaHasError(true)
+			hasError = true
+		}
         if (!hasError) {
             handleNext()
         }
@@ -153,6 +161,10 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
                         />
                         <span className={lastNameHasError ? 'visible small-font' : 'hidden'}>Invalid last name!</span>
                     </div>
+                    <ReCAPTCHA sitekey={import.meta.env.VITE_SITE_KEY} ref={recaptcha}/>
+                    <span className={captchaHasError ? 'visible small-font' : 'hidden'}>Please complete captcha to continue!</span>
+
+					<br />
                     <button type="button" onClick={handleBasicInfo}>Register</button>
                 </div>
             )}

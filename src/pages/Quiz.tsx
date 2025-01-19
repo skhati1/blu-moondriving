@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import AnimatedPage from "../components/AnimatedPage";
 import Content from "../components/layout/Content/Content";
 import { useLocation } from 'react-router'
-import getQuiz from "../components/Quiz/quizFunctions";
+import quizFunctions from "../components/Quiz/quizFunctions";
 import Stepper from "../components/Quiz/Stepper";
 
 export default function Quiz() {
@@ -17,7 +17,7 @@ export default function Quiz() {
 
     useEffect(() => {
         if (quizId) {
-            let res = getQuiz(quizId)
+            let res = quizFunctions.getQuiz(quizId)
             if (res != null && res.length != 0) {
                 let definition = res[0]
                 setQuizName(definition.name)

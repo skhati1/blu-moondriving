@@ -162,6 +162,16 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
                     <span>Choose the best answer:</span>
                     <h2>Question {currentStep}: </h2>
                     <h4 className="center">{questions[currentStep - 1].question}</h4>
+                    <div className="centerMargins">
+                        {questions[currentStep - 1].image !== undefined && 
+                        <>
+                            <img className="centerMargins" 
+                                src={questions[currentStep - 1].image} 
+                                width={questions[currentStep - 1].imageWidth}
+                                height={questions[currentStep - 1].imageHeight} 
+                            />
+                        </>}
+                    </div>
                     {questions[currentStep - 1].answers.map((answer) => (
                         <div key={answer.key}>
                             <form style={{ margin: '0 0 0 0' }}>

@@ -7,7 +7,6 @@ export default function AllQuestions() {
             "quiz": [
                 {
                     "question": "When is a provisional license holder under 18 not allowed to drive ____ without special permissions?",
-                    "image": null,
                     "correctAnswer": "B",
                     "answers": [
                         { "key": "A", "item": "between 8:00 a.m. and 9:00 p.m." },
@@ -18,7 +17,6 @@ export default function AllQuestions() {
                 },
                 {
                     "question": "While driving, a new driver under 18 is prohibited from ___",
-                    "image": null,
                     "correctAnswer": "D",
                     "answers": [
                         { "key": "A", "item": "using a cell phone to call family." },
@@ -29,7 +27,6 @@ export default function AllQuestions() {
                 },
                 {
                     "question": "If a learner's permit holder commits a moving violation, he/she",
-                    "image": null,
                     "correctAnswer": "A",
                     "answers": [
                         { "key": "A", "item": "must restart the 9-month waiting period to receive a provisional license." },
@@ -40,7 +37,6 @@ export default function AllQuestions() {
                 },
                 {
                     "question": "During the first 5 months (151 days) of the provisional period, provisional license holders under the age of 18",
-                    "image": null,
                     "correctAnswer": "A",
                     "answers": [
                         { "key": "A", "item": "must not have passengers under the age of 18, unless accompanied by a qualified supervising driver or unless the passengers are direct family members." },
@@ -51,7 +47,6 @@ export default function AllQuestions() {
                 },
                 {
                     "question": "Once a parent/guardian signs for a provisional license,",
-                    "image": null,
                     "correctAnswer": "B",
                     "answers": [
                         { "key": "A", "item": "it cannot be taken away." },
@@ -62,7 +57,6 @@ export default function AllQuestions() {
                 },
                 {
                     "question": "A new driver under the age of 25 is required by law to practice night driving for at least ___ hours.",
-                    "image": null,
                     "correctAnswer": "C",
                     "answers": [
                         { "key": "A", "item": "6 hours" },
@@ -73,7 +67,6 @@ export default function AllQuestions() {
                 },
                 {
                     "question": "A person who has a Learner's Instructional Permit",
-                    "image": null,
                     "correctAnswer": "C",
                     "answers": [
                         { "key": "A", "item": "may drive with the supervision of any licensed driver." },
@@ -84,7 +77,6 @@ export default function AllQuestions() {
                 },
                 {
                     "question": "For drivers under age 25, ___ hours of practice must be recorded in the Practice Skills Log.",
-                    "image": null,
                     "correctAnswer": "A",
                     "answers": [
                         { "key": "A", "item": "60" },
@@ -95,7 +87,6 @@ export default function AllQuestions() {
                 },
                 {
                     "question": "When going to the MVA to take your skills test, you must bring",
-                    "image": null,
                     "correctAnswer": "D",
                     "answers": [
                         { "key": "A", "item": "a clean, well maintained vehicle." },
@@ -106,7 +97,6 @@ export default function AllQuestions() {
                 },
                 {
                     "question": "To obtain a provisional license in Maryland,",
-                    "image": null,
                     "correctAnswer": "A",
                     "answers": [
                         { "key": "A", "item": "a new driver must pass a skills test including a closed course and an open road test." },
@@ -124,7 +114,6 @@ export default function AllQuestions() {
             "quiz": [
                 {
                     "question": "This is sample question one for test quiz. Correct answer is C",
-                    "image": null,
                     "correctAnswer": "C",
                     "answers": [
                         { "key": "A", "item": "Answer A" },
@@ -135,7 +124,6 @@ export default function AllQuestions() {
                 },
                 {
                     "question": "This is sample question two for test quiz. Correct answer is D",
-                    "image": null,
                     "correctAnswer": "D",
                     "answers": [
                         { "key": "A", "item": "Answer A" },

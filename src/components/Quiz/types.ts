@@ -34,7 +34,9 @@ export interface QuizItem {
     question: string,
     answers: QuizAnswer[],
     correctAnswer: string
-    image: string | null;
+    image?: string;
+    imageHeight?: string;
+    imageWidth?: string;
 }
 
 export interface QuizAnswer {

@@ -133,6 +133,213 @@ export default function AllQuestions() {
                     ]
                 }
             ],
+        },
+        {
+            "key": "ecf421e73db06a4d29f3c564dddf8d0b",
+            "name": "Unit Two Quiz",
+            "questionsAtOnce": 1,
+            "quiz": [
+                {
+                    "question": "This is sample question one for test quiz. Correct answer is C",
+                    "correctAnswer": "C",
+                    "answers": [
+                        { "key": "A", "item": "Answer A" },
+                        { "key": "B", "item": "Answer B" },
+                        { "key": "C", "item": "Answer C" },
+                        { "key": "D", "item": "Answer D" }
+                    ]
+                }
+            ],
+        },
+        {
+            "key": "40664ed4fb38ae35af27efeb55b588f7",
+            "name": "Unit Three Quiz",
+            "questionsAtOnce": 1,
+            "quiz": [
+                {
+                    "question": "This is sample question one for test quiz. Correct answer is C",
+                    "correctAnswer": "C",
+                    "answers": [
+                        { "key": "A", "item": "Answer A" },
+                        { "key": "B", "item": "Answer B" },
+                        { "key": "C", "item": "Answer C" },
+                        { "key": "D", "item": "Answer D" }
+                    ]
+                }
+            ],
+        },
+        {
+            "key": "81739407a79fca7cdc9f3c318442b5a1",
+            "name": "Unit Four Quiz",
+            "questionsAtOnce": 1,
+            "quiz": [
+                {
+                    "question": "This is sample question one for test quiz. Correct answer is C",
+                    "correctAnswer": "C",
+                    "answers": [
+                        { "key": "A", "item": "Answer A" },
+                        { "key": "B", "item": "Answer B" },
+                        { "key": "C", "item": "Answer C" },
+                        { "key": "D", "item": "Answer D" }
+                    ]
+                }
+            ],
+        },
+        {
+            "key": "id=674476b6cbb8ab81e69ecd6ae35371c5",
+            "name": "Unit Five Quiz",
+            "questionsAtOnce": 1,
+            "quiz": [
+                {
+                    "question": "This is sample question one for test quiz. Correct answer is C",
+                    "correctAnswer": "C",
+                    "answers": [
+                        { "key": "A", "item": "Answer A" },
+                        { "key": "B", "item": "Answer B" },
+                        { "key": "C", "item": "Answer C" },
+                        { "key": "D", "item": "Answer D" }
+                    ]
+                }
+            ],
+        },
+        {
+            "key": "e69bd4eab9721e74fa5f3fdbddb84b1b",
+            "name": "Unit Six Quiz",
+            "questionsAtOnce": 1,
+            "quiz": [
+                {
+                    "question": "This is sample question one for test quiz. Correct answer is C",
+                    "correctAnswer": "C",
+                    "answers": [
+                        { "key": "A", "item": "Answer A" },
+                        { "key": "B", "item": "Answer B" },
+                        { "key": "C", "item": "Answer C" },
+                        { "key": "D", "item": "Answer D" }
+                    ]
+                },
+                {
+                    "question": "This is sample question two for test quiz. Correct answer is D",
+                    "correctAnswer": "D",
+                    "answers": [
+                        { "key": "A", "item": "Answer A" },
+                        { "key": "B", "item": "Answer B" },
+                        { "key": "C", "item": "Answer C" },
+                        { "key": "D", "item": "Answer D" }
+                    ]
+                }
+            ],
+        },
+        {
+            "key": "7145538391cc77ac9638c7303211db7f",
+            "name": "Unit Seven Quiz",
+            "questionsAtOnce": 1,
+            "quiz": [
+                {
+                    "question": "This is sample question one for test quiz. Correct answer is C",
+                    "correctAnswer": "C",
+                    "answers": [
+                        { "key": "A", "item": "Answer A" },
+                        { "key": "B", "item": "Answer B" },
+                        { "key": "C", "item": "Answer C" },
+                        { "key": "D", "item": "Answer D" }
+                    ]
+                }
+            ],
+        },
+        {
+            "key": "895fe666f44052cd54a4baf0a0294a28",
+            "name": "Unit Eight Quiz",
+            "questionsAtOnce": 1,
+            "quiz": [
+                {
+                    "question": "This is sample question one for test quiz. Correct answer is C",
+                    "correctAnswer": "C",
+                    "answers": [
+                        { "key": "A", "item": "Answer A" },
+                        { "key": "B", "item": "Answer B" },
+                        { "key": "C", "item": "Answer C" },
+                        { "key": "D", "item": "Answer D" }
+                    ]
+                }
+            ],
+        },
+        {
+            "key": "8c203f0b7f81e8e1c40e6a0a350befde",
+            "name": "Unit Nine Quiz",
+            "questionsAtOnce": 1,
+            "quiz": [
+                {
+                    "question": "This is sample question one for test quiz. Correct answer is C",
+                    "correctAnswer": "C",
+                    "answers": [
+                        { "key": "A", "item": "Answer A" },
+                        { "key": "B", "item": "Answer B" },
+                        { "key": "C", "item": "Answer C" },
+                        { "key": "D", "item": "Answer D" }
+                    ]
+                }
+            ],
+        },
+        {
+            "key": "38bee6ef4e79a92c191579dde26424ce",
+            "name": "Unit 10 - Set A",
+            "questionsAtOnce": 1,
+            "quiz": [
+                {
+                    "question": "This is sample question one for test quiz. Correct answer is C",
+                    "correctAnswer": "C",
+                    "answers": [
+                        { "key": "A", "item": "Answer A" },
+                        { "key": "B", "item": "Answer B" },
+                        { "key": "C", "item": "Answer C" },
+                        { "key": "D", "item": "Answer D" }
+                    ]
+                },
+            ],
+        },
+        {
+            "key": "effa1b1e0eba6fdd20a918252fda0556",
+            "name": "Unit 10 - Set B",
+            "questionsAtOnce": 1,
+            "quiz": [
+                {
+                    "question": "This is sample question one for test quiz. Correct answer is C",
+                    "correctAnswer": "C",
+                    "answers": [
+                        { "key": "A", "item": "Answer A" },
+                        { "key": "B", "item": "Answer B" },
+                        { "key": "C", "item": "Answer C" },
+                        { "key": "D", "item": "Answer D" }
+                    ]
+                },
+                {
+                    "question": "This is sample question two for test quiz. Correct answer is D",
+                    "correctAnswer": "D",
+                    "answers": [
+                        { "key": "A", "item": "Answer A" },
+                        { "key": "B", "item": "Answer B" },
+                        { "key": "C", "item": "Answer C" },
+                        { "key": "D", "item": "Answer D" }
+                    ]
+                }
+            ],
+        },
+        {
+            "key": "bd00d7cdb5b203a2ff3392116853572e",
+            "name": "Unit 10 - Set C",
+            "questionsAtOnce": 1,
+            "quiz": [
+                {
+                    "question": "This is sample question one for test quiz. Correct answer is C",
+                    "correctAnswer": "C",
+                    "answers": [
+                        { "key": "A", "item": "Answer A" },
+                        { "key": "B", "item": "Answer B" },
+                        { "key": "C", "item": "Answer C" },
+                        { "key": "D", "item": "Answer D" }
+                    ]
+                }
+            ],
         }
     ];
     return res;

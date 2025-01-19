@@ -1,4 +1,4 @@
-import { AuditEmail } from './types';
+import { AuditEmail } from '../types';
 import quizFunctions from './quizFunctions'
 
 export default async function sendEmail(audit: AuditEmail) {

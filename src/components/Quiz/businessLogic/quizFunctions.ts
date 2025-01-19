@@ -1,5 +1,5 @@
 import allQuestions from './allQuestions'
-import { AuditEmail, QuizDefinition } from './types';
+import { AuditEmail, QuizDefinition } from '../types';
 
 const getQuiz = (id: string) => {
   const questions = allQuestions()

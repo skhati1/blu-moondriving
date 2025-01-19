@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
 import Content from '../layout/Content/Content';
 import './stepper.css'
-import sendEmail from './emailSender';
 import { AnswerSheet, AuditEmail, StepperProps } from './types';
-import ReCAPTCHA from "react-google-recaptcha";
+import FinishScreen from './components/FinishScreen';
+import BasicInfoScreen from './components/BasicInfoScreen';
 
 interface StudentResponse {
     questionIndex: number,
@@ -13,33 +13,14 @@ interface StudentResponse {
 //https://onlinehashtools.com/generate-random-md5-hash
 
 const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
-
-    const recaptcha = useRef<ReCAPTCHA>(null);
+    const [basicInfo, setBasicInfo] = useState({ firstName: '', lastName: ''})
     const auditAnswerSheet: AnswerSheet[] = []
-    const [submitButtonText, setSubmitButtonText] = useState('Submit')
-    const [isSubmitEnabled, setIsSubmitEnabled] = useState(true)
+    let initialAnswers: AnswerSheet[] = []
 
     const [isSaveEnabled, setIsSaveEnabled] = useState(false)
-
-    const [firstNameHasError, setFirstNameHasError] = useState(false)
-    const [lastNameHasError, setLastNameHasError] = useState(false)
-    const [captchaHasError, setCaptchaHasError] = useState(false)
-
     const [currentStep, setCurrentStep] = useState<number>(0);
-    const [formData, setFormData] = useState<{ firstName: string; lastName: string; }>({
-        firstName: '',
-        lastName: ''
-    });
-
-    let initialAnswers: AnswerSheet[] = []
     const [answers, setAnswers] = useState(initialAnswers);
     const [validatedAnswers, setValidatedAnswers] = useState<Record<number, boolean>>({});
-
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
-    };
-
     const [studentSelectedAnswer, setStudentSelectedAnswer] = useState({} as StudentResponse | null)
 
     const handleAnswerSelect = (questionIndex: number, answerKey: string): void => {
@@ -88,85 +69,27 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
         }, 0);
     };
 
-    const handleSubmitQuiz = () => {
-        if (window.confirm("Are you sure you wish to submit?")){
-            let audit: AuditEmail = {
-                ...formData,
-                'answerSheet': answers,
-                'score': calculateScore() + ' out of ' + questions.length,
-                'finalScore': ((calculateScore() / questions.length) * 100).toFixed(2) + '%',
-                'quizName': quizName
-            }
-            let response = sendEmail(audit)
-            if (!response) {
-                alert('Failed to submit! Please try to submit again!')
-                setSubmitButtonText('Retry')
-                setIsSaveEnabled(true)
-            } else {
-                setSubmitButtonText('Done!')
-                setIsSubmitEnabled(false)
-            }
-        } else {
-            console.log("user cancelled submission")
+    const buildAuditReport = (): AuditEmail => {
+        let audit: AuditEmail = {
+            'firstName': basicInfo.firstName,
+            'lastName': basicInfo.lastName,
+            'answerSheet': answers,
+            'score': calculateScore() + ' out of ' + questions.length,
+            'finalScore': ((calculateScore() / questions.length) * 100).toFixed(2) + '%',
+            'quizName': quizName
         }
+        return audit
     }
 
-    const handleBasicInfo = () => {
-        setFirstNameHasError(false)
-        setLastNameHasError(false)
-        setCaptchaHasError(false)
-        let hasError = false
-
-        //Validate form, show errors, only when good go next
-        if (!formData.firstName || formData.firstName.trim().length < 1) {
-            setFirstNameHasError(true)
-            hasError = true
-        }
-        if (!formData.lastName || formData.lastName.trim().length < 1) {
-            setLastNameHasError(true)
-            hasError = true
-        }
-        if(recaptcha.current != null && !recaptcha.current.getValue()){
-			setCaptchaHasError(true)
-			hasError = true
-		}
-        if (!hasError) {
-            handleNext()
-        }
+    const onBasicInfoSubmit = (firstName: string, lastName: string): void => {
+        setBasicInfo({firstName, lastName})
+        handleNext()
     }
-
 
     return (
         <Content>
             {currentStep === 0 && (
-                <div className="basicForm">
-                    <h2>Basic Information</h2>
-                    <div className="labelWithError">
-                        <input
-                            type="text"
-                            name="firstName"
-                            placeholder="First Name"
-                            value={formData.firstName}
-                            onChange={handleInputChange}
-                        />
-                        <span className={firstNameHasError ? 'visible small-font' : 'hidden'}>Invalid first name!</span>
-                    </div>
-                    <div className="labelWithError">
-                        <input
-                            type="text"
-                            name="lastName"
-                            placeholder="Last Name"
-                            value={formData.lastName}
-                            onChange={handleInputChange}
-                        />
-                        <span className={lastNameHasError ? 'visible small-font' : 'hidden'}>Invalid last name!</span>
-                    </div>
-                    <ReCAPTCHA sitekey={import.meta.env.VITE_SITE_KEY} ref={recaptcha}/>
-                    <span className={captchaHasError ? 'visible small-font' : 'hidden'}>Please complete captcha to continue!</span>
-
-					<br />
-                    <button type="button" onClick={handleBasicInfo}>Register</button>
-                </div>
+                <BasicInfoScreen onBasicInfoSubmit={onBasicInfoSubmit} />
             )}
 
             {currentStep > 0 && currentStep <= questions.length && (
@@ -228,12 +151,11 @@ const Stepper: React.FC<StepperProps> = ({ questions, quizName }) => {
             )}
 
             {currentStep > questions.length && (
-                <div className="center">
-                    <h2>Your Score</h2>
-                    <h3>{calculateScore()} out of {questions.length}</h3>
-                    <h2> {((calculateScore() / questions.length) * 100).toFixed(2)} %</h2>
-                    <button onClick={handleSubmitQuiz} disabled={!isSubmitEnabled}>{submitButtonText}</button>
-                </div>
+                <FinishScreen 
+                    calculateScore={calculateScore} 
+                    totalQuestions={questions.length} 
+                    auditReport={buildAuditReport()} 
+                />
             )}
         </Content>
     );

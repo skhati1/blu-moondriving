@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import AnimatedPage from "../components/AnimatedPage";
 import Content from "../components/layout/Content/Content";
 import { useLocation } from 'react-router'
-import quizFunctions from "../components/Quiz/quizFunctions";
+import quizFunctions from "../components/Quiz/businessLogic/quizFunctions";
 import Stepper from "../components/Quiz/Stepper";
 
 export default function Quiz() {

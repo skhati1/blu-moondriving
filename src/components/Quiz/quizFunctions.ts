@@ -2,33 +2,30 @@ import allQuestions from './allQuestions'
 import { AuditEmail, QuizDefinition } from './types';
 
 const getQuiz = (id: string) => {
-    const questions = allQuestions()
-    const fetchedQuiz: QuizDefinition[] = questions
-            .filter((item) => item.key === id)
-            .map((item) => item);
+  const questions = allQuestions()
+  const fetchedQuiz: QuizDefinition[] = questions
+    .filter((item) => item.key === id)
+    .map((item) => item);
 
-    if (fetchedQuiz)
-    {
-        return fetchedQuiz
-    }
-    return null
+  if (fetchedQuiz) {
+    return fetchedQuiz
+  }
+  return null
 }
 
 
 const buildHtmlAuditEmail = (audit: AuditEmail): string => {
-    const tableRows = audit.answerSheet.map(({ question, studentAnswer, correctAnswer, isCorrect, correctAnswerText, studentAnswerText}) => `
-    <tr>
-      <td class="center">${isCorrect === true ? '✅' : '❌'}</td>
-      <td>${question}</td>
-      <td>${studentAnswer}</td>
-      <td>${studentAnswerText}</td>
-      <td>${correctAnswer}</td>
-      <td>${correctAnswerText}</td>
-    </tr>`
-        )
-        .join('');
+  const questionAnswers = audit.answerSheet.map(({ question, studentAnswer, correctAnswer, isCorrect, correctAnswerText, studentAnswerText }) => `
+    <p><b>Question:</b> ${question} <br /></p>
+    <ul>
+      <li><b>Student Answer:</b> ${studentAnswer} ${studentAnswerText}</li>
+      <li><b>Correct Answer:</b> ${correctAnswer} ${correctAnswerText}</li>
+      <li>Result: ${isCorrect === true ? '✅' : '❌'}</li>
+    </ul>`
+  )
+    .join('');
 
-    return `
+  return `
   <!DOCTYPE html>
   <html>
   <head>
@@ -77,25 +74,10 @@ const buildHtmlAuditEmail = (audit: AuditEmail): string => {
       <h1>${audit.quizName} - Result</h1>
       <p><strong>First Name:</strong> ${audit.firstName}</p>
       <p><strong>Last Name:</strong> ${audit.lastName}</p>
-      
-      <table>
-        <thead>
-          <tr>
-            <th>Result</th>
-            <th>Question</th>
-            <th>Student Answer</th>
-            <th>Student Answer Text</th>
-            <th>Correct Answer</th>
-            <th>Correct Text</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${tableRows}
-        </tbody>
-      </table>
       <div class="score">
-        <p class="center"><strong>Score:</strong> ${audit.score} &nbsp; <strong>Final Score:</strong> ${audit.finalScore}</p>
+        <p><strong>Score:</strong> ${audit.score} &nbsp; <strong>Final Score:</strong> ${audit.finalScore}</p>
       </div>
+      ${questionAnswers}
     </div>
   </body>
   </html>
